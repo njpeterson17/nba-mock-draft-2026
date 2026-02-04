@@ -565,49 +565,62 @@
         }
 
         .player-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
         }
 
         .stat {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            border-radius: 8px;
             text-align: center;
+            flex: 1;
         }
 
         .stat-value {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--basketball-orange);
         }
 
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #8892b0;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         .player-analysis {
             background: rgba(255, 255, 255, 0.03);
-            padding: 15px;
-            border-radius: 10px;
-            line-height: 1.5;
+            padding: 10px 12px;
+            border-radius: 8px;
+            line-height: 1.4;
             color: #ccd6f6;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+        }
+
+        .player-analysis strong {
+            color: var(--basketball-orange);
+        }
+
+        .analysis-section {
+            margin-bottom: 6px;
+        }
+
+        .analysis-section:last-child {
+            margin-bottom: 0;
         }
 
         .draft-grade {
             display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 4px 12px;
+            border-radius: 15px;
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
-            margin-top: 8px;
+            font-size: 0.9rem;
+            margin-top: 6px;
         }
 
         .grade-a-plus { background: linear-gradient(135deg, #00C853, #00E676); }
@@ -2164,9 +2177,9 @@
                             <div class="stat"><div class="stat-value">1.8</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Darryn Peterson is the consensus #1 prospect - a two-way guard with elite athleticism, scoring ability, and defensive instincts. He has superstar potential.<br><br>
-                            <strong>Fit in Sacramento:</strong> Post-Fox rebuild mode. The Kings need a new franchise cornerstone, and Peterson is exactly that. He pairs perfectly with Zach LaVine in the backcourt.<br><br>
-                            <strong>Analysis:</strong> Peterson is the clear top pick in this class. His combination of size, skill, and competitiveness is rare. Sacramento gets their future.
+                            <div class="analysis-section"><strong>Pick:</strong> Darryn Peterson is the consensus #1 prospect - a two-way guard with elite athleticism, scoring ability, and defensive instincts. He has superstar potential.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> Post-Fox rebuild mode. The Kings need a new franchise cornerstone, and Peterson is exactly that. He pairs perfectly with Zach LaVine in the backcourt.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Peterson is the clear top pick in this class. His combination of size, skill, and competitiveness is rare. Sacramento gets their future.
                             <div class="draft-grade grade-a">A</div>
                         </div>
                     </div>
@@ -2203,9 +2216,9 @@
                             <div class="stat"><div class="stat-value">4.1</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Cameron Boozer is a skilled power forward with excellent footwork, passing vision, and basketball IQ. Son of Carlos Boozer, he has elite pedigree.<br><br>
-                            <strong>Fit in New Orleans:</strong> Boozer pairs perfectly with Zion Williamson in the frontcourt. His playmaking and shooting complement Zion's attacking style.<br><br>
-                            <strong>Analysis:</strong> Boozer is the most NBA-ready player in the draft. His floor is a high-level starter, and his ceiling is an All-Star caliber stretch four.
+                            <div class="analysis-section"><strong>Pick:</strong> Cameron Boozer is a skilled power forward with excellent footwork, passing vision, and basketball IQ. Son of Carlos Boozer, he has elite pedigree.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> Boozer pairs perfectly with Zion Williamson in the frontcourt. His playmaking and shooting complement Zion's attacking style.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Boozer is the most NBA-ready player in the draft. His floor is a high-level starter, and his ceiling is an All-Star caliber stretch four.
                             <div class="draft-grade grade-a-plus">A+</div>
                         </div>
                     </div>
@@ -2242,9 +2255,9 @@
                             <div class="stat"><div class="stat-value">4.0</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> AJ Dybantsa is a long, athletic wing with a smooth scoring game and defensive versatility. He was the top recruit in his high school class.<br><br>
-                            <strong>Fit in Indiana:</strong> The Pacers need a two-way wing to pair with Tyrese Haliburton. Dybantsa provides length and scoring punch on the wing.<br><br>
-                            <strong>Analysis:</strong> Dybantsa has the highest ceiling in the draft. His tools are tantalizing, though he needs to add strength and improve consistency.
+                            <div class="analysis-section"><strong>Pick:</strong> AJ Dybantsa is a long, athletic wing with a smooth scoring game and defensive versatility. He was the top recruit in his high school class.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Pacers need a two-way wing to pair with Tyrese Haliburton. Dybantsa provides length and scoring punch on the wing.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Dybantsa has the highest ceiling in the draft. His tools are tantalizing, though he needs to add strength and improve consistency.
                             <div class="draft-grade grade-a">A</div>
                         </div>
                     </div>
@@ -2281,9 +2294,9 @@
                             <div class="stat"><div class="stat-value">5.4</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Kingston Flemings is a dynamic point guard with elite speed, scoring ability, and leadership. He thrives in Kelvin Sampson's demanding system.<br><br>
-                            <strong>Fit in Brooklyn:</strong> The Nets are rebuilding and need a franchise point guard. Flemings gives them a cornerstone to build around.<br><br>
-                            <strong>Analysis:</strong> Flemings is a winner who makes others better. His toughness and competitiveness will translate immediately to the NBA.
+                            <div class="analysis-section"><strong>Pick:</strong> Kingston Flemings is a dynamic point guard with elite speed, scoring ability, and leadership. He thrives in Kelvin Sampson's demanding system.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Nets are rebuilding and need a franchise point guard. Flemings gives them a cornerstone to build around.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Flemings is a winner who makes others better. His toughness and competitiveness will translate immediately to the NBA.
                             <div class="draft-grade grade-b-plus">B+</div>
                         </div>
                     </div>
@@ -2320,9 +2333,9 @@
                             <div class="stat"><div class="stat-value">2.8</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Caleb Wilson is a long, versatile forward with elite defensive potential and a developing offensive game. His tools are exceptional.<br><br>
-                            <strong>Fit in Washington:</strong> The Wizards need difference-makers. Wilson's two-way potential gives them a building block for their rebuild.<br><br>
-                            <strong>Analysis:</strong> Wilson is a high-upside pick with defensive anchor potential. He needs to improve his shooting but has the work ethic to do it.
+                            <div class="analysis-section"><strong>Pick:</strong> Caleb Wilson is a long, versatile forward with elite defensive potential and a developing offensive game. His tools are exceptional.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Wizards need difference-makers. Wilson's two-way potential gives them a building block for their rebuild.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Wilson is a high-upside pick with defensive anchor potential. He needs to improve his shooting but has the work ethic to do it.
                             <div class="draft-grade grade-a">A</div>
                         </div>
                     </div>
@@ -2359,9 +2372,9 @@
                             <div class="stat"><div class="stat-value">4.2</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Keaton Wagler is a silky smooth scorer with deep range and an advanced offensive game. He can score at all three levels.<br><br>
-                            <strong>Fit in Utah:</strong> The Jazz need backcourt scoring. Wagler provides instant offense and fits their timeline as they build through the draft.<br><br>
-                            <strong>Analysis:</strong> Wagler is the best pure scorer in the class. His shot-making ability is elite, though he needs to improve defensively.
+                            <div class="analysis-section"><strong>Pick:</strong> Keaton Wagler is a silky smooth scorer with deep range and an advanced offensive game. He can score at all three levels.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Jazz need backcourt scoring. Wagler provides instant offense and fits their timeline as they build through the draft.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Wagler is the best pure scorer in the class. His shot-making ability is elite, though he needs to improve defensively.
                             <div class="draft-grade grade-b-plus">B+</div>
                         </div>
                     </div>
@@ -2398,9 +2411,9 @@
                             <div class="stat"><div class="stat-value">5.0</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Mikel Brown Jr. is a two-way point guard with excellent size, vision, and defensive ability. He controls the game on both ends.<br><br>
-                            <strong>Fit in Dallas:</strong> The Mavericks need a secondary playmaker next to Luka. Brown's defense and passing fit perfectly in their system.<br><br>
-                            <strong>Analysis:</strong> Brown is a winning player who does everything well. He won't be a star but will be a valuable starter for a decade.
+                            <div class="analysis-section"><strong>Pick:</strong> Mikel Brown Jr. is a two-way point guard with excellent size, vision, and defensive ability. He controls the game on both ends.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Mavericks need a secondary playmaker next to Luka. Brown's defense and passing fit perfectly in their system.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Brown is a winning player who does everything well. He won't be a star but will be a valuable starter for a decade.
                             <div class="draft-grade grade-b-plus">B+</div>
                         </div>
                     </div>
@@ -2437,9 +2450,9 @@
                             <div class="stat"><div class="stat-value">2.4</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Nate Ament is a long, skilled wing with excellent shooting and playmaking ability. His basketball IQ and feel for the game are advanced.<br><br>
-                            <strong>Fit in Milwaukee:</strong> The Bucks need young talent for the post-Giannis era. Ament provides a potential cornerstone with two-way upside.<br><br>
-                            <strong>Analysis:</strong> Ament's combination of size, skill, and IQ is rare. He fits the modern NBA perfectly and should be a high-level starter.
+                            <div class="analysis-section"><strong>Pick:</strong> Nate Ament is a long, skilled wing with excellent shooting and playmaking ability. His basketball IQ and feel for the game are advanced.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Bucks need young talent for the post-Giannis era. Ament provides a potential cornerstone with two-way upside.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Ament's combination of size, skill, and IQ is rare. He fits the modern NBA perfectly and should be a high-level starter.
                             <div class="draft-grade grade-a">A</div>
                         </div>
                     </div>
@@ -2476,9 +2489,9 @@
                             <div class="stat"><div class="stat-value">5.0</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Labaron Philon is a dynamic guard with elite speed and scoring ability. He can take over games with his burst and shotmaking.<br><br>
-                            <strong>Fit in Memphis:</strong> The Grizzlies love guards who compete. Philon fits their culture and provides backcourt depth behind Ja Morant.<br><br>
-                            <strong>Analysis:</strong> Philon is electric in transition and has improved his shooting. He's perfect for Memphis's up-tempo style.
+                            <div class="analysis-section"><strong>Pick:</strong> Labaron Philon is a dynamic guard with elite speed and scoring ability. He can take over games with his burst and shotmaking.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Grizzlies love guards who compete. Philon fits their culture and provides backcourt depth behind Ja Morant.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Philon is electric in transition and has improved his shooting. He's perfect for Memphis's up-tempo style.
                             <div class="draft-grade grade-b-plus">B+</div>
                         </div>
                     </div>
@@ -2515,9 +2528,9 @@
                             <div class="stat"><div class="stat-value">1.3</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Braylon Mullins is a winning player with championship DNA from UConn. He does everything well - shoots, defends, competes.<br><br>
-                            <strong>Fit in Charlotte:</strong> The Hornets need culture-changers. Mullins brings winning habits and fits next to LaMelo Ball as a 3-and-D wing.<br><br>
-                            <strong>Analysis:</strong> Mullins isn't flashy but he's reliable. He'll be a quality starter who makes winning plays for years.
+                            <div class="analysis-section"><strong>Pick:</strong> Braylon Mullins is a winning player with championship DNA from UConn. He does everything well - shoots, defends, competes.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Hornets need culture-changers. Mullins brings winning habits and fits next to LaMelo Ball as a 3-and-D wing.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Mullins isn't flashy but he's reliable. He'll be a quality starter who makes winning plays for years.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -2554,9 +2567,9 @@
                             <div class="stat"><div class="stat-value">2.7</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Hannes Steinbach is a skilled stretch four from Germany with excellent shooting touch and passing ability. He's a modern big who spaces the floor.<br><br>
-                            <strong>Fit in Portland:</strong> The Blazers need frontcourt help. Steinbach fits perfectly as a stretch four next to their young core.<br><br>
-                            <strong>Analysis:</strong> Steinbach is a smart, skilled player who should translate well. His floor-spacing and playmaking are valuable.
+                            <div class="analysis-section"><strong>Pick:</strong> Hannes Steinbach is a skilled stretch four from Germany with excellent shooting touch and passing ability. He's a modern big who spaces the floor.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Blazers need frontcourt help. Steinbach fits perfectly as a stretch four next to their young core.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Steinbach is a smart, skilled player who should translate well. His floor-spacing and playmaking are valuable.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -2593,9 +2606,9 @@
                             <div class="stat"><div class="stat-value">3.2</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Yaxel Lendeborg is a powerful forward with a polished offensive game and improving three-point shot. He's physically ready to contribute now.<br><br>
-                            <strong>Fit in LA:</strong> The Clippers need contributors in their new arena. Lendeborg's experience makes him ready to play immediately.<br><br>
-                            <strong>Analysis:</strong> Lendeborg's age limits his ceiling, but his floor is high. He'll be a solid rotation big from day one.
+                            <div class="analysis-section"><strong>Pick:</strong> Yaxel Lendeborg is a powerful forward with a polished offensive game and improving three-point shot. He's physically ready to contribute now.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Clippers need contributors in their new arena. Lendeborg's experience makes him ready to play immediately.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Lendeborg's age limits his ceiling, but his floor is high. He'll be a solid rotation big from day one.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -2632,9 +2645,9 @@
                             <div class="stat"><div class="stat-value">2.8</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Koa Peat is a powerful, athletic forward with elite physical tools and an improving skill set. His motor and intensity are relentless.<br><br>
-                            <strong>Fit in Chicago:</strong> The Bulls need young, athletic talent. Peat provides energy and upside as they retool their roster.<br><br>
-                            <strong>Analysis:</strong> Peat is a high-upside pick who could develop into a two-way star. His tools and motor are special.
+                            <div class="analysis-section"><strong>Pick:</strong> Koa Peat is a powerful, athletic forward with elite physical tools and an improving skill set. His motor and intensity are relentless.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Bulls need young, athletic talent. Peat provides energy and upside as they retool their roster.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Peat is a high-upside pick who could develop into a two-way star. His tools and motor are special.
                             <div class="draft-grade grade-a-minus">A-</div>
                         </div>
                     </div>
@@ -2671,9 +2684,9 @@
                             <div class="stat"><div class="stat-value">6.4</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Darius Acuff is a lightning-quick point guard with elite handles and playmaking ability. He breaks down defenses and creates for others.<br><br>
-                            <strong>Fit in Atlanta:</strong> The Hawks can pair Acuff with Trae Young in a dynamic backcourt or use him as insurance if they trade Trae.<br><br>
-                            <strong>Analysis:</strong> Acuff is a pure point guard with starter potential. His speed and vision translate perfectly to the NBA.
+                            <div class="analysis-section"><strong>Pick:</strong> Darius Acuff is a lightning-quick point guard with elite handles and playmaking ability. He breaks down defenses and creates for others.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Hawks can pair Acuff with Trae Young in a dynamic backcourt or use him as insurance if they trade Trae.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Acuff is a pure point guard with starter potential. His speed and vision translate perfectly to the NBA.
                             <div class="draft-grade grade-b-plus">B+</div>
                         </div>
                     </div>
@@ -2712,9 +2725,9 @@
                             <div class="stat"><div class="stat-value">2.8</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Brayden Burries is a tough, competitive guard who defends and hits threes. He's a Heat Culture player through and through.<br><br>
-                            <strong>Fit in Miami:</strong> Burries fits perfectly in Miami's system. He competes, defends, and shoots - exactly what Pat Riley wants.<br><br>
-                            <strong>Analysis:</strong> Burries won't be a star but he'll have a long career. He's the prototypical Heat player.
+                            <div class="analysis-section"><strong>Pick:</strong> Brayden Burries is a tough, competitive guard who defends and hits threes. He's a Heat Culture player through and through.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> Burries fits perfectly in Miami's system. He competes, defends, and shoots - exactly what Pat Riley wants.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Burries won't be a star but he'll have a long career. He's the prototypical Heat player.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -2751,9 +2764,9 @@
                             <div class="stat"><div class="stat-value">3.4</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Amari Allen is a long, athletic wing with solid handles, floor spacing ability, and defensive instincts. He has a herky-jerky style that's hard to guard.<br><br>
-                            <strong>Fit in LA:</strong> The Lakers need wing depth badly. Allen's size and shooting complement their guards, and his defensive instincts help a porous defense.<br><br>
-                            <strong>Analysis:</strong> Allen could be a steal here. His floor spacing and defensive versatility are exactly what the Lakers need around their aging core.
+                            <div class="analysis-section"><strong>Pick:</strong> Amari Allen is a long, athletic wing with solid handles, floor spacing ability, and defensive instincts. He has a herky-jerky style that's hard to guard.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Lakers need wing depth badly. Allen's size and shooting complement their guards, and his defensive instincts help a porous defense.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Allen could be a steal here. His floor spacing and defensive versatility are exactly what the Lakers need around their aging core.
                             <div class="draft-grade grade-b-plus">B+</div>
                         </div>
                     </div>
@@ -2790,9 +2803,9 @@
                             <div class="stat"><div class="stat-value">0.5</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Jayden Quaintance is an elite athlete with incredible length and defensive potential. His tools are off the charts.<br><br>
-                            <strong>Fit in Minnesota:</strong> The Wolves can develop Quaintance behind their veteran frontcourt. His defensive upside fits their identity.<br><br>
-                            <strong>Analysis:</strong> Quaintance is raw but the tools are tantalizing. If he develops an offensive game, he could be special.
+                            <div class="analysis-section"><strong>Pick:</strong> Jayden Quaintance is an elite athlete with incredible length and defensive potential. His tools are off the charts.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Wolves can develop Quaintance behind their veteran frontcourt. His defensive upside fits their identity.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Quaintance is raw but the tools are tantalizing. If he develops an offensive game, he could be special.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -2829,9 +2842,9 @@
                             <div class="stat"><div class="stat-value">1.9</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Thomas Haugh is a skilled stretch four with excellent shooting, basketball IQ, and the ability to play alongside a dominant big.<br><br>
-                            <strong>Fit in San Antonio:</strong> With De'Aaron Fox now running the point, the Spurs need frontcourt help around the Fox-Wembanyama duo. Haugh spaces the floor perfectly next to Wemby.<br><br>
-                            <strong>Analysis:</strong> Haugh is the perfect complementary piece. His floor spacing, high IQ, and ability to play off stars makes him ideal for San Antonio's new Big 3 era.
+                            <div class="analysis-section"><strong>Pick:</strong> Thomas Haugh is a skilled stretch four with excellent shooting, basketball IQ, and the ability to play alongside a dominant big.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> With De'Aaron Fox now running the point, the Spurs need frontcourt help around the Fox-Wembanyama duo. Haugh spaces the floor perfectly next to Wemby.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Haugh is the perfect complementary piece. His floor spacing, high IQ, and ability to play off stars makes him ideal for San Antonio's new Big 3 era.
                             <div class="draft-grade grade-a">A</div>
                         </div>
                     </div>
@@ -2868,9 +2881,9 @@
                             <div class="stat"><div class="stat-value">2.0</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Patrick Ngongba II is a skilled center with shot-blocking ability and improving offensive touch. He protects the rim and runs the floor.<br><br>
-                            <strong>Fit in Detroit:</strong> The Pistons need interior defense. Ngongba provides rim protection alongside Cade Cunningham and their young core.<br><br>
-                            <strong>Analysis:</strong> Ngongba is a safe pick with starter upside. His defensive impact will be immediate.
+                            <div class="analysis-section"><strong>Pick:</strong> Patrick Ngongba II is a skilled center with shot-blocking ability and improving offensive touch. He protects the rim and runs the floor.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Pistons need interior defense. Ngongba provides rim protection alongside Cade Cunningham and their young core.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Ngongba is a safe pick with starter upside. His defensive impact will be immediate.
                             <div class="draft-grade grade-b-plus">B+</div>
                         </div>
                     </div>
@@ -2907,9 +2920,9 @@
                             <div class="stat"><div class="stat-value">1.8</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Tounde Yessoufou is an athletic wing with defensive versatility and improving shooting. His motor and energy are contagious.<br><br>
-                            <strong>Fit in Toronto:</strong> The Raptors love lengthy, athletic wings. Yessoufou fits their defensive identity and development track record.<br><br>
-                            <strong>Analysis:</strong> Yessoufou is a project with starter upside. Toronto's development program could unlock his potential.
+                            <div class="analysis-section"><strong>Pick:</strong> Tounde Yessoufou is an athletic wing with defensive versatility and improving shooting. His motor and energy are contagious.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Raptors love lengthy, athletic wings. Yessoufou fits their defensive identity and development track record.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Yessoufou is a project with starter upside. Toronto's development program could unlock his potential.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -2946,9 +2959,9 @@
                             <div class="stat"><div class="stat-value">2.6</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Cameron Carr is a knockdown shooter with range and quick release. He can score in bunches when hot.<br><br>
-                            <strong>Fit in Phoenix:</strong> The Suns need cheap shooting. Carr provides instant offense off the bench on a rookie contract.<br><br>
-                            <strong>Analysis:</strong> Carr is limited defensively but his shooting is elite. He'll find a role as a spark plug scorer.
+                            <div class="analysis-section"><strong>Pick:</strong> Cameron Carr is a knockdown shooter with range and quick release. He can score in bunches when hot.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Suns need cheap shooting. Carr provides instant offense off the bench on a rookie contract.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Carr is limited defensively but his shooting is elite. He'll find a role as a spark plug scorer.
                             <div class="draft-grade grade-b-minus">B-</div>
                         </div>
                     </div>
@@ -2985,9 +2998,9 @@
                             <div class="stat"><div class="stat-value">1.9</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Karim Lopez is an intriguing international wing with size, skill, and defensive potential. He's been developing professionally overseas.<br><br>
-                            <strong>Fit in New York:</strong> The Knicks can stash Lopez overseas or bring him over to develop. His upside fits their long-term plans.<br><br>
-                            <strong>Analysis:</strong> Lopez is a swing for upside. His professional experience gives him polish beyond typical college players.
+                            <div class="analysis-section"><strong>Pick:</strong> Karim Lopez is an intriguing international wing with size, skill, and defensive potential. He's been developing professionally overseas.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Knicks can stash Lopez overseas or bring him over to develop. His upside fits their long-term plans.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Lopez is a swing for upside. His professional experience gives him polish beyond typical college players.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -3026,9 +3039,9 @@
                             <div class="stat"><div class="stat-value">0.8</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Chris Cenac Jr. is an elite defender with shot-blocking ability and growing offensive skills. He's a product of Kelvin Sampson's system.<br><br>
-                            <strong>Fit in Houston:</strong> The Rockets keep their local product and add frontcourt depth. Cenac knows the culture already.<br><br>
-                            <strong>Analysis:</strong> Cenac is a safe, high-floor pick. His defensive impact is immediate and his offense is developing.
+                            <div class="analysis-section"><strong>Pick:</strong> Chris Cenac Jr. is an elite defender with shot-blocking ability and growing offensive skills. He's a product of Kelvin Sampson's system.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Rockets keep their local product and add frontcourt depth. Cenac knows the culture already.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Cenac is a safe, high-floor pick. His defensive impact is immediate and his offense is developing.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -3065,9 +3078,9 @@
                             <div class="stat"><div class="stat-value">7.5</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Christian Anderson is a quick, scrappy point guard who defends and competes. He's a pest on the ball defensively.<br><br>
-                            <strong>Fit in Denver:</strong> The Nuggets need guard depth behind Jamal Murray. Anderson provides energy and defense off the bench.<br><br>
-                            <strong>Analysis:</strong> Anderson is a backup point guard with starter defensive ability. He'll carve out a role immediately.
+                            <div class="analysis-section"><strong>Pick:</strong> Christian Anderson is a quick, scrappy point guard who defends and competes. He's a pest on the ball defensively.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Nuggets need guard depth behind Jamal Murray. Anderson provides energy and defense off the bench.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Anderson is a backup point guard with starter defensive ability. He'll carve out a role immediately.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -3104,9 +3117,9 @@
                             <div class="stat"><div class="stat-value">1.8</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Malachi Moreno is a massive center with rim protection and developing offensive skills. His size and length are elite.<br><br>
-                            <strong>Fit in OKC:</strong> The Thunder add another young big to develop. Moreno provides rim protection behind Chet Holmgren.<br><br>
-                            <strong>Analysis:</strong> Moreno is a project with backup center potential. His defensive tools are intriguing.
+                            <div class="analysis-section"><strong>Pick:</strong> Malachi Moreno is a massive center with rim protection and developing offensive skills. His size and length are elite.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Thunder add another young big to develop. Moreno provides rim protection behind Chet Holmgren.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Moreno is a project with backup center potential. His defensive tools are intriguing.
                             <div class="draft-grade grade-b-minus">B-</div>
                         </div>
                     </div>
@@ -3143,9 +3156,9 @@
                             <div class="stat"><div class="stat-value">5.6</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Joshua Jefferson is a winning player who does the dirty work - rebounding, defending, and making hustle plays. He's a glue guy.<br><br>
-                            <strong>Fit in Cleveland:</strong> The Cavs need depth and winning players. Jefferson fits their championship aspirations as a role player.<br><br>
-                            <strong>Analysis:</strong> Jefferson won't be a star but he'll help winning teams. His intangibles are off the charts.
+                            <div class="analysis-section"><strong>Pick:</strong> Joshua Jefferson is a winning player who does the dirty work - rebounding, defending, and making hustle plays. He's a glue guy.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Cavs need depth and winning players. Jefferson fits their championship aspirations as a role player.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Jefferson won't be a star but he'll help winning teams. His intangibles are off the charts.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
@@ -3182,9 +3195,9 @@
                             <div class="stat"><div class="stat-value">5.2</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Tyler Tanner is a floor general with elite court vision and passing ability. He makes others better and controls tempo.<br><br>
-                            <strong>Fit in Golden State:</strong> The Warriors need someone to learn from Steph Curry. Tanner can absorb knowledge from the greatest shooter ever.<br><br>
-                            <strong>Analysis:</strong> Tanner's size limits him but his feel for the game is elite. He could be a solid backup point guard.
+                            <div class="analysis-section"><strong>Pick:</strong> Tyler Tanner is a floor general with elite court vision and passing ability. He makes others better and controls tempo.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Warriors need someone to learn from Steph Curry. Tanner can absorb knowledge from the greatest shooter ever.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Tanner's size limits him but his feel for the game is elite. He could be a solid backup point guard.
                             <div class="draft-grade grade-c-plus">C+</div>
                         </div>
                     </div>
@@ -3221,9 +3234,9 @@
                             <div class="stat"><div class="stat-value">1.3</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Morez Johnson Jr. is a physical, powerful forward who rebounds and finishes around the rim. He plays hard every possession.<br><br>
-                            <strong>Fit in Boston:</strong> The Celtics need frontcourt depth. Johnson provides energy and toughness off the bench.<br><br>
-                            <strong>Analysis:</strong> Johnson is a limited offensive player but his motor and physicality have value. He'll carve out a role.
+                            <div class="analysis-section"><strong>Pick:</strong> Morez Johnson Jr. is a physical, powerful forward who rebounds and finishes around the rim. He plays hard every possession.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Celtics need frontcourt depth. Johnson provides energy and toughness off the bench.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Johnson is a limited offensive player but his motor and physicality have value. He'll carve out a role.
                             <div class="draft-grade grade-c-plus">C+</div>
                         </div>
                     </div>
@@ -3260,9 +3273,9 @@
                             <div class="stat"><div class="stat-value">2.5</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Aday Mara is a massive center from Spain with soft touch and improving mobility. His size creates problems for opposing teams.<br><br>
-                            <strong>Fit in Orlando:</strong> The Magic add more size to their already imposing frontcourt. Mara provides depth behind Wendell Carter Jr.<br><br>
-                            <strong>Analysis:</strong> Mara is a developmental pick with backup center potential. His size alone gives him value.
+                            <div class="analysis-section"><strong>Pick:</strong> Aday Mara is a massive center from Spain with soft touch and improving mobility. His size creates problems for opposing teams.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The Magic add more size to their already imposing frontcourt. Mara provides depth behind Wendell Carter Jr.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Mara is a developmental pick with backup center potential. His size alone gives him value.
                             <div class="draft-grade grade-c-plus">C+</div>
                         </div>
                     </div>
@@ -3299,9 +3312,9 @@
                             <div class="stat"><div class="stat-value">2.6</div><div class="stat-label">APG</div></div>
                         </div>
                         <div class="player-analysis">
-                            <strong>The Pick:</strong> Dailyn Swain is a versatile wing with size, shooting, and defensive ability. He can guard multiple positions and hit open threes.<br><br>
-                            <strong>Fit in Philadelphia:</strong> The 76ers get value at the end of the first round. Swain provides wing depth and defensive versatility.<br><br>
-                            <strong>Analysis:</strong> Swain is a solid value pick who can contribute in a limited role. His versatility gives him a chance to stick.
+                            <div class="analysis-section"><strong>Pick:</strong> Dailyn Swain is a versatile wing with size, shooting, and defensive ability. He can guard multiple positions and hit open threes.</div>
+                            <div class="analysis-section"><strong>Fit:</strong> The 76ers get value at the end of the first round. Swain provides wing depth and defensive versatility.</div>
+                            <div class="analysis-section"><strong>Analysis:</strong> Swain is a solid value pick who can contribute in a limited role. His versatility gives him a chance to stick.
                             <div class="draft-grade grade-b">B</div>
                         </div>
                     </div>
