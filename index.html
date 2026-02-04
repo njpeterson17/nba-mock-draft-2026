@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 NBA Mock Draft - First Round</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #e94560, #f39c12, #e94560);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .header p {
+            color: #8892b0;
+            font-size: 1.2rem;
+        }
+
+        .draft-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lottery-banner {
+            background: linear-gradient(90deg, #e94560, #f39c12);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .pick-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pick-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(233, 69, 96, 0.2);
+        }
+
+        .pick-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            gap: 20px;
+        }
+
+        .pick-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e94560, #f39c12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .team-logo {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .team-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .team-needs {
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+
+        .player-info {
+            padding: 25px;
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .player-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e94560;
+        }
+
+        .player-school {
+            color: #8892b0;
+            margin-top: 5px;
+        }
+
+        .player-position {
+            background: linear-gradient(135deg, #e94560, #f39c12);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .player-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f39c12;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #8892b0;
+            margin-top: 5px;
+        }
+
+        .player-analysis {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.7;
+            color: #ccd6f6;
+        }
+
+        .mid-round-banner {
+            background: linear-gradient(90deg, #0f3460, #16213e);
+            border: 2px solid #e94560;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 40px 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #e94560;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #8892b0;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2rem; }
+            .player-stats { grid-template-columns: repeat(2, 1fr); }
+            .pick-header { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2026 NBA Mock Draft</h1>
+        <p>First Round - 30 Picks | Based on Tankathon Big Board</p>
+    </div>
+
+    <div class="draft-container">
+        <div class="lottery-banner">Lottery Picks (1-14)</div>
+
+        <!-- Pick 1 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">1</div>
+                <div class="team-logo">SAC</div>
+                <div class="team-info">
+                    <h3>Sacramento Kings</h3>
+                    <div class="team-needs">Needs: Wing, Defense, Depth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Darryn Peterson</div>
+                        <div class="player-school">Kansas | Freshman</div>
+                    </div>
+                    <div class="player-position">SG/PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'6"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">205</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#1</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Darryn Peterson is the consensus #1 prospect - a two-way guard with elite athleticism, scoring ability, and defensive instincts. He has superstar potential.<br><br>
+                    <strong>Fit in Sacramento:</strong> The Kings desperately need a wing who can defend and create his own shot. Peterson gives them a future franchise cornerstone alongside De'Aaron Fox.<br><br>
+                    <strong>Analysis:</strong> Peterson is the clear top pick in this class. His combination of size, skill, and competitiveness is rare. Sacramento gets their future.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 2 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">2</div>
+                <div class="team-logo">NOP</div>
+                <div class="team-info">
+                    <h3>New Orleans Pelicans</h3>
+                    <div class="team-needs">Needs: Frontcourt, Scoring, Health</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Cameron Boozer</div>
+                        <div class="player-school">Duke | Freshman</div>
+                    </div>
+                    <div class="player-position">PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">18.9</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#2</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Cameron Boozer is a skilled power forward with excellent footwork, passing vision, and basketball IQ. Son of Carlos Boozer, he has elite pedigree.<br><br>
+                    <strong>Fit in New Orleans:</strong> Boozer pairs perfectly with Zion Williamson in the frontcourt. His playmaking and shooting complement Zion's attacking style.<br><br>
+                    <strong>Analysis:</strong> Boozer is the most NBA-ready player in the draft. His floor is a high-level starter, and his ceiling is an All-Star caliber stretch four.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 3 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">3</div>
+                <div class="team-logo">IND</div>
+                <div class="team-info">
+                    <h3>Indiana Pacers</h3>
+                    <div class="team-needs">Needs: Wing, Defense, Size</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">AJ Dybantsa</div>
+                        <div class="player-school">BYU | Freshman</div>
+                    </div>
+                    <div class="player-position">SF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">210</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#3</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> AJ Dybantsa is a long, athletic wing with a smooth scoring game and defensive versatility. He was the top recruit in his high school class.<br><br>
+                    <strong>Fit in Indiana:</strong> The Pacers need a two-way wing to pair with Tyrese Haliburton. Dybantsa provides length and scoring punch on the wing.<br><br>
+                    <strong>Analysis:</strong> Dybantsa has the highest ceiling in the draft. His tools are tantalizing, though he needs to add strength and improve consistency.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 4 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">4</div>
+                <div class="team-logo">BKN</div>
+                <div class="team-info">
+                    <h3>Brooklyn Nets</h3>
+                    <div class="team-needs">Needs: Everything, Rebuild, Star</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Kingston Flemings</div>
+                        <div class="player-school">Houston | Freshman</div>
+                    </div>
+                    <div class="player-position">PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'4"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">190</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.5</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#4</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Kingston Flemings is a dynamic point guard with elite speed, scoring ability, and leadership. He thrives in Kelvin Sampson's demanding system.<br><br>
+                    <strong>Fit in Brooklyn:</strong> The Nets are rebuilding and need a franchise point guard. Flemings gives them a cornerstone to build around.<br><br>
+                    <strong>Analysis:</strong> Flemings is a winner who makes others better. His toughness and competitiveness will translate immediately to the NBA.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 5 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">5</div>
+                <div class="team-logo">WAS</div>
+                <div class="team-info">
+                    <h3>Washington Wizards</h3>
+                    <div class="team-needs">Needs: Everything, Star, Defense</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Caleb Wilson</div>
+                        <div class="player-school">North Carolina | Freshman</div>
+                    </div>
+                    <div class="player-position">SF/PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'10"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">215</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.9</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#5</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Caleb Wilson is a long, versatile forward with elite defensive potential and a developing offensive game. His tools are exceptional.<br><br>
+                    <strong>Fit in Washington:</strong> The Wizards need difference-makers. Wilson's two-way potential gives them a building block for their rebuild.<br><br>
+                    <strong>Analysis:</strong> Wilson is a high-upside pick with defensive anchor potential. He needs to improve his shooting but has the work ethic to do it.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 6 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">6</div>
+                <div class="team-logo">UTA</div>
+                <div class="team-info">
+                    <h3>Utah Jazz</h3>
+                    <div class="team-needs">Needs: Guard, Scoring, Playmaking</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Keaton Wagler</div>
+                        <div class="player-school">Illinois | Freshman</div>
+                    </div>
+                    <div class="player-position">SG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'6"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">185</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#6</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Keaton Wagler is a silky smooth scorer with deep range and an advanced offensive game. He can score at all three levels.<br><br>
+                    <strong>Fit in Utah:</strong> The Jazz need backcourt scoring. Wagler provides instant offense and fits their timeline as they build through the draft.<br><br>
+                    <strong>Analysis:</strong> Wagler is the best pure scorer in the class. His shot-making ability is elite, though he needs to improve defensively.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 7 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">7</div>
+                <div class="team-logo">DAL</div>
+                <div class="team-info">
+                    <h3>Dallas Mavericks</h3>
+                    <div class="team-needs">Needs: Defense, Wing, Depth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Mikel Brown Jr.</div>
+                        <div class="player-school">Louisville | Sophomore</div>
+                    </div>
+                    <div class="player-position">PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'5"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">190</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.2</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#7</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Mikel Brown Jr. is a two-way point guard with excellent size, vision, and defensive ability. He controls the game on both ends.<br><br>
+                    <strong>Fit in Dallas:</strong> The Mavericks need a secondary playmaker next to Luka. Brown's defense and passing fit perfectly in their system.<br><br>
+                    <strong>Analysis:</strong> Brown is a winning player who does everything well. He won't be a star but will be a valuable starter for a decade.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 8 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">8</div>
+                <div class="team-logo">MIL</div>
+                <div class="team-info">
+                    <h3>Milwaukee Bucks</h3>
+                    <div class="team-needs">Needs: Youth, Wing, Future</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Nate Ament</div>
+                        <div class="player-school">Tennessee | Freshman</div>
+                    </div>
+                    <div class="player-position">SF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'10"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">207</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.5</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#8</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Nate Ament is a long, skilled wing with excellent shooting and playmaking ability. His basketball IQ and feel for the game are advanced.<br><br>
+                    <strong>Fit in Milwaukee:</strong> The Bucks need young talent for the post-Giannis era. Ament provides a potential cornerstone with two-way upside.<br><br>
+                    <strong>Analysis:</strong> Ament's combination of size, skill, and IQ is rare. He fits the modern NBA perfectly and should be a high-level starter.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 9 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">9</div>
+                <div class="team-logo">MEM</div>
+                <div class="team-info">
+                    <h3>Memphis Grizzlies</h3>
+                    <div class="team-needs">Needs: Wing, Depth, Defense</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Labaron Philon</div>
+                        <div class="player-school">Alabama | Sophomore</div>
+                    </div>
+                    <div class="player-position">PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'4"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">175</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.6</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#9</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Labaron Philon is a dynamic guard with elite speed and scoring ability. He can take over games with his burst and shotmaking.<br><br>
+                    <strong>Fit in Memphis:</strong> The Grizzlies love guards who compete. Philon fits their culture and provides backcourt depth behind Ja Morant.<br><br>
+                    <strong>Analysis:</strong> Philon is electric in transition and has improved his shooting. He's perfect for Memphis's up-tempo style.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 10 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">10</div>
+                <div class="team-logo">CHA</div>
+                <div class="team-info">
+                    <h3>Charlotte Hornets</h3>
+                    <div class="team-needs">Needs: Everything, Star, Direction</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Braylon Mullins</div>
+                        <div class="player-school">UConn | Sophomore</div>
+                    </div>
+                    <div class="player-position">SG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'6"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">196</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.2</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#10</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Braylon Mullins is a winning player with championship DNA from UConn. He does everything well - shoots, defends, competes.<br><br>
+                    <strong>Fit in Charlotte:</strong> The Hornets need culture-changers. Mullins brings winning habits and fits next to LaMelo Ball as a 3-and-D wing.<br><br>
+                    <strong>Analysis:</strong> Mullins isn't flashy but he's reliable. He'll be a quality starter who makes winning plays for years.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 11 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">11</div>
+                <div class="team-logo">POR</div>
+                <div class="team-info">
+                    <h3>Portland Trail Blazers</h3>
+                    <div class="team-needs">Needs: Big, Defense, Depth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Hannes Steinbach</div>
+                        <div class="player-school">Washington | Freshman</div>
+                    </div>
+                    <div class="player-position">PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">220</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.1</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#11</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Hannes Steinbach is a skilled stretch four from Germany with excellent shooting touch and passing ability. He's a modern big who spaces the floor.<br><br>
+                    <strong>Fit in Portland:</strong> The Blazers need frontcourt help. Steinbach fits perfectly as a stretch four next to their young core.<br><br>
+                    <strong>Analysis:</strong> Steinbach is a smart, skilled player who should translate well. His floor-spacing and playmaking are valuable.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 12 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">12</div>
+                <div class="team-logo">LAC</div>
+                <div class="team-info">
+                    <h3>Los Angeles Clippers</h3>
+                    <div class="team-needs">Needs: Future, Youth, Star</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Yaxel Lendeborg</div>
+                        <div class="player-school">Michigan | Senior</div>
+                    </div>
+                    <div class="player-position">PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'10"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">235</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">23.7</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#12</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Yaxel Lendeborg is a powerful forward with a polished offensive game and improving three-point shot. He's physically ready to contribute now.<br><br>
+                    <strong>Fit in LA:</strong> The Clippers need contributors in their new arena. Lendeborg's experience makes him ready to play immediately.<br><br>
+                    <strong>Analysis:</strong> Lendeborg's age limits his ceiling, but his floor is high. He'll be a solid rotation big from day one.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 13 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">13</div>
+                <div class="team-logo">CHI</div>
+                <div class="team-info">
+                    <h3>Chicago Bulls</h3>
+                    <div class="team-needs">Needs: Direction, Youth, Talent</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Koa Peat</div>
+                        <div class="player-school">Arizona | Freshman</div>
+                    </div>
+                    <div class="player-position">PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'8"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">235</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#13</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Koa Peat is a powerful, athletic forward with elite physical tools and an improving skill set. His motor and intensity are relentless.<br><br>
+                    <strong>Fit in Chicago:</strong> The Bulls need young, athletic talent. Peat provides energy and upside as they retool their roster.<br><br>
+                    <strong>Analysis:</strong> Peat is a high-upside pick who could develop into a two-way star. His tools and motor are special.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 14 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">14</div>
+                <div class="team-logo">ATL</div>
+                <div class="team-info">
+                    <h3>Atlanta Hawks</h3>
+                    <div class="team-needs">Needs: Defense, Wing, Identity</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Darius Acuff</div>
+                        <div class="player-school">Arkansas | Freshman</div>
+                    </div>
+                    <div class="player-position">PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'3"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">190</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.6</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#14</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Darius Acuff is a lightning-quick point guard with elite handles and playmaking ability. He breaks down defenses and creates for others.<br><br>
+                    <strong>Fit in Atlanta:</strong> The Hawks can pair Acuff with Trae Young in a dynamic backcourt or use him as insurance if they trade Trae.<br><br>
+                    <strong>Analysis:</strong> Acuff is a pure point guard with starter potential. His speed and vision translate perfectly to the NBA.
+                </div>
+            </div>
+        </div>
+
+        <div class="mid-round-banner">Mid-First Round (15-22)</div>
+
+        <!-- Pick 15 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">15</div>
+                <div class="team-logo">MIA</div>
+                <div class="team-info">
+                    <h3>Miami Heat</h3>
+                    <div class="team-needs">Needs: Youth, Guard, Future</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Brayden Burries</div>
+                        <div class="player-school">Arizona | Sophomore</div>
+                    </div>
+                    <div class="player-position">SG/PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'4"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">205</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.8</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#15</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Brayden Burries is a tough, competitive guard who defends and hits threes. He's a Heat Culture player through and through.<br><br>
+                    <strong>Fit in Miami:</strong> Burries fits perfectly in Miami's system. He competes, defends, and shoots - exactly what Pat Riley wants.<br><br>
+                    <strong>Analysis:</strong> Burries won't be a star but he'll have a long career. He's the prototypical Heat player.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 16 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">16</div>
+                <div class="team-logo">LAL</div>
+                <div class="team-info">
+                    <h3>Los Angeles Lakers</h3>
+                    <div class="team-needs">Needs: Guard, Depth, Shooting</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Thomas Haugh</div>
+                        <div class="player-school">Florida | Senior</div>
+                    </div>
+                    <div class="player-position">PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">215</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">22.9</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#16</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Thomas Haugh is a skilled stretch four with excellent shooting and basketball IQ. He's NBA-ready and can contribute immediately.<br><br>
+                    <strong>Fit in LA:</strong> The Lakers need floor spacing around their stars. Haugh provides exactly that on an affordable rookie deal.<br><br>
+                    <strong>Analysis:</strong> Haugh's age limits his upside but his floor is high. He'll be a solid rotation player from day one.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 17 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">17</div>
+                <div class="team-logo">MIN</div>
+                <div class="team-info">
+                    <h3>Minnesota Timberwolves</h3>
+                    <div class="team-needs">Needs: Wing, Shooting, Depth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Jayden Quaintance</div>
+                        <div class="player-school">Kentucky | Freshman</div>
+                    </div>
+                    <div class="player-position">PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">255</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">18.9</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#17</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Jayden Quaintance is an elite athlete with incredible length and defensive potential. His tools are off the charts.<br><br>
+                    <strong>Fit in Minnesota:</strong> The Wolves can develop Quaintance behind their veteran frontcourt. His defensive upside fits their identity.<br><br>
+                    <strong>Analysis:</strong> Quaintance is raw but the tools are tantalizing. If he develops an offensive game, he could be special.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 18 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">18</div>
+                <div class="team-logo">SAS</div>
+                <div class="team-info">
+                    <h3>San Antonio Spurs</h3>
+                    <div class="team-needs">Needs: Guard, Shooting, Depth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Bennett Stirtz</div>
+                        <div class="player-school">Iowa | Senior</div>
+                    </div>
+                    <div class="player-position">PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'4"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">190</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">22.7</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#18</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Bennett Stirtz is a proven point guard with elite shooting and playmaking. He runs a team efficiently and makes smart decisions.<br><br>
+                    <strong>Fit in San Antonio:</strong> The Spurs need guard depth next to Wembanyama. Stirtz can run the offense and space the floor.<br><br>
+                    <strong>Analysis:</strong> Stirtz is a high-floor pick who contributes immediately. He's a perfect Spurs player - smart, efficient, and team-first.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 19 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">19</div>
+                <div class="team-logo">DET</div>
+                <div class="team-info">
+                    <h3>Detroit Pistons</h3>
+                    <div class="team-needs">Needs: Big, Defense, Shooting</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Patrick Ngongba II</div>
+                        <div class="player-school">Duke | Sophomore</div>
+                    </div>
+                    <div class="player-position">C</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.3</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#19</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Patrick Ngongba II is a skilled center with shot-blocking ability and improving offensive touch. He protects the rim and runs the floor.<br><br>
+                    <strong>Fit in Detroit:</strong> The Pistons need interior defense. Ngongba provides rim protection alongside Cade Cunningham and their young core.<br><br>
+                    <strong>Analysis:</strong> Ngongba is a safe pick with starter upside. His defensive impact will be immediate.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 20 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">20</div>
+                <div class="team-logo">TOR</div>
+                <div class="team-info">
+                    <h3>Toronto Raptors</h3>
+                    <div class="team-needs">Needs: Wing, Scoring, Star</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Tounde Yessoufou</div>
+                        <div class="player-school">Baylor | Sophomore</div>
+                    </div>
+                    <div class="player-position">SG/SF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'5"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">215</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.1</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#20</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Tounde Yessoufou is an athletic wing with defensive versatility and improving shooting. His motor and energy are contagious.<br><br>
+                    <strong>Fit in Toronto:</strong> The Raptors love lengthy, athletic wings. Yessoufou fits their defensive identity and development track record.<br><br>
+                    <strong>Analysis:</strong> Yessoufou is a project with starter upside. Toronto's development program could unlock his potential.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 21 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">21</div>
+                <div class="team-logo">PHX</div>
+                <div class="team-info">
+                    <h3>Phoenix Suns</h3>
+                    <div class="team-needs">Needs: Big, Depth, Defense</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Cameron Carr</div>
+                        <div class="player-school">Baylor | Junior</div>
+                    </div>
+                    <div class="player-position">SG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'5"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">175</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">21.6</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#21</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Cameron Carr is a knockdown shooter with range and quick release. He can score in bunches when hot.<br><br>
+                    <strong>Fit in Phoenix:</strong> The Suns need cheap shooting. Carr provides instant offense off the bench on a rookie contract.<br><br>
+                    <strong>Analysis:</strong> Carr is limited defensively but his shooting is elite. He'll find a role as a spark plug scorer.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 22 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">22</div>
+                <div class="team-logo">NYK</div>
+                <div class="team-info">
+                    <h3>New York Knicks</h3>
+                    <div class="team-needs">Needs: Depth, Guard, Shooting</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Karim Lopez</div>
+                        <div class="player-school">New Zealand Breakers</div>
+                    </div>
+                    <div class="player-position">SF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'8"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">220</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.2</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#22</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Karim Lopez is an intriguing international wing with size, skill, and defensive potential. He's been developing professionally overseas.<br><br>
+                    <strong>Fit in New York:</strong> The Knicks can stash Lopez overseas or bring him over to develop. His upside fits their long-term plans.<br><br>
+                    <strong>Analysis:</strong> Lopez is a swing for upside. His professional experience gives him polish beyond typical college players.
+                </div>
+            </div>
+        </div>
+
+        <div class="mid-round-banner">Late First Round (23-30)</div>
+
+        <!-- Pick 23 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">23</div>
+                <div class="team-logo">HOU</div>
+                <div class="team-info">
+                    <h3>Houston Rockets</h3>
+                    <div class="team-needs">Needs: Wing, Shooting, Depth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Chris Cenac Jr.</div>
+                        <div class="player-school">Houston | Sophomore</div>
+                    </div>
+                    <div class="player-position">PF/C</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">240</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#23</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Chris Cenac Jr. is an elite defender with shot-blocking ability and growing offensive skills. He's a product of Kelvin Sampson's system.<br><br>
+                    <strong>Fit in Houston:</strong> The Rockets keep their local product and add frontcourt depth. Cenac knows the culture already.<br><br>
+                    <strong>Analysis:</strong> Cenac is a safe, high-floor pick. His defensive impact is immediate and his offense is developing.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 24 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">24</div>
+                <div class="team-logo">DEN</div>
+                <div class="team-info">
+                    <h3>Denver Nuggets</h3>
+                    <div class="team-needs">Needs: Wing, Defense, Youth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Christian Anderson</div>
+                        <div class="player-school">Texas Tech | Sophomore</div>
+                    </div>
+                    <div class="player-position">PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'3"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">178</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.2</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#24</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Christian Anderson is a quick, scrappy point guard who defends and competes. He's a pest on the ball defensively.<br><br>
+                    <strong>Fit in Denver:</strong> The Nuggets need guard depth behind Jamal Murray. Anderson provides energy and defense off the bench.<br><br>
+                    <strong>Analysis:</strong> Anderson is a backup point guard with starter defensive ability. He'll carve out a role immediately.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 25 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">25</div>
+                <div class="team-logo">OKC</div>
+                <div class="team-info">
+                    <h3>Oklahoma City Thunder</h3>
+                    <div class="team-needs">Needs: Big, Experience, Depth</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Malachi Moreno</div>
+                        <div class="player-school">Kentucky | Freshman</div>
+                    </div>
+                    <div class="player-position">C</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">7'0"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">19.7</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#25</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Malachi Moreno is a massive center with rim protection and developing offensive skills. His size and length are elite.<br><br>
+                    <strong>Fit in OKC:</strong> The Thunder add another young big to develop. Moreno provides rim protection behind Chet Holmgren.<br><br>
+                    <strong>Analysis:</strong> Moreno is a project with backup center potential. His defensive tools are intriguing.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 26 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">26</div>
+                <div class="team-logo">CLE</div>
+                <div class="team-info">
+                    <h3>Cleveland Cavaliers</h3>
+                    <div class="team-needs">Needs: Wing, Depth, Shooting</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Joshua Jefferson</div>
+                        <div class="player-school">Iowa State | Senior</div>
+                    </div>
+                    <div class="player-position">PF/SF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">240</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">22.6</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#26</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Joshua Jefferson is a winning player who does the dirty work - rebounding, defending, and making hustle plays. He's a glue guy.<br><br>
+                    <strong>Fit in Cleveland:</strong> The Cavs need depth and winning players. Jefferson fits their championship aspirations as a role player.<br><br>
+                    <strong>Analysis:</strong> Jefferson won't be a star but he'll help winning teams. His intangibles are off the charts.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 27 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">27</div>
+                <div class="team-logo">GSW</div>
+                <div class="team-info">
+                    <h3>Golden State Warriors</h3>
+                    <div class="team-needs">Needs: Youth, Guard, Future</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Tyler Tanner</div>
+                        <div class="player-school">Vanderbilt | Senior</div>
+                    </div>
+                    <div class="player-position">PG</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'0"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">175</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.4</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#27</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Tyler Tanner is a floor general with elite court vision and passing ability. He makes others better and controls tempo.<br><br>
+                    <strong>Fit in Golden State:</strong> The Warriors need someone to learn from Steph Curry. Tanner can absorb knowledge from the greatest shooter ever.<br><br>
+                    <strong>Analysis:</strong> Tanner's size limits him but his feel for the game is elite. He could be a solid backup point guard.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 28 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">28</div>
+                <div class="team-logo">BOS</div>
+                <div class="team-info">
+                    <h3>Boston Celtics</h3>
+                    <div class="team-needs">Needs: Big, Depth, Value</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Morez Johnson Jr.</div>
+                        <div class="player-school">Michigan | Junior</div>
+                    </div>
+                    <div class="player-position">PF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.4</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#28</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Morez Johnson Jr. is a physical, powerful forward who rebounds and finishes around the rim. He plays hard every possession.<br><br>
+                    <strong>Fit in Boston:</strong> The Celtics need frontcourt depth. Johnson provides energy and toughness off the bench.<br><br>
+                    <strong>Analysis:</strong> Johnson is a limited offensive player but his motor and physicality have value. He'll carve out a role.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 29 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">29</div>
+                <div class="team-logo">ORL</div>
+                <div class="team-info">
+                    <h3>Orlando Magic</h3>
+                    <div class="team-needs">Needs: Guard, Shooting, Playmaking</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Aday Mara</div>
+                        <div class="player-school">Michigan | Sophomore</div>
+                    </div>
+                    <div class="player-position">C</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">7'3"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">255</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">21.2</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#29</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Aday Mara is a massive center from Spain with soft touch and improving mobility. His size creates problems for opposing teams.<br><br>
+                    <strong>Fit in Orlando:</strong> The Magic add more size to their already imposing frontcourt. Mara provides depth behind Wendell Carter Jr.<br><br>
+                    <strong>Analysis:</strong> Mara is a developmental pick with backup center potential. His size alone gives him value.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick 30 -->
+        <div class="pick-card">
+            <div class="pick-header">
+                <div class="pick-number">30</div>
+                <div class="team-logo">PHI</div>
+                <div class="team-info">
+                    <h3>Philadelphia 76ers</h3>
+                    <div class="team-needs">Needs: Depth, Wing, Value</div>
+                </div>
+            </div>
+            <div class="player-info">
+                <div class="player-header">
+                    <div>
+                        <div class="player-name">Dailyn Swain</div>
+                        <div class="player-school">Texas | Junior</div>
+                    </div>
+                    <div class="player-position">SG/SF</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat"><div class="stat-value">6'8"</div><div class="stat-label">Height</div></div>
+                    <div class="stat"><div class="stat-value">225</div><div class="stat-label">Weight</div></div>
+                    <div class="stat"><div class="stat-value">20.9</div><div class="stat-label">Age</div></div>
+                    <div class="stat"><div class="stat-value">#30</div><div class="stat-label">Rank</div></div>
+                </div>
+                <div class="player-analysis">
+                    <strong>The Pick:</strong> Dailyn Swain is a versatile wing with size, shooting, and defensive ability. He can guard multiple positions and hit open threes.<br><br>
+                    <strong>Fit in Philadelphia:</strong> The 76ers get value at the end of the first round. Swain provides wing depth and defensive versatility.<br><br>
+                    <strong>Analysis:</strong> Swain is a solid value pick who can contribute in a limited role. His versatility gives him a chance to stick.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>2026 NBA Mock Draft | First Round Complete</p>
+        <p>Big Board Rankings via Tankathon | Analysis by AI</p>
+    </div>
+</body>
+</html>
