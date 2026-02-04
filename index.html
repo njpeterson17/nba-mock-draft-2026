@@ -392,6 +392,212 @@
             z-index: 1;
         }
 
+        /* ===== COMPACT MODE STYLES ===== */
+        /* Toggle Button Container */
+        .view-toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            gap: 10px;
+        }
+
+        .view-toggle-btn {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-toggle-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .view-toggle-btn.active {
+            background: var(--basketball-orange);
+            border-color: var(--basketball-orange);
+            box-shadow: 0 4px 15px rgba(232, 93, 4, 0.4);
+        }
+
+        .view-toggle-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* Compact Pick Card - Horizontal Layout */
+        .draft-container.compact-mode .pick-card {
+            margin-bottom: 12px;
+            border-radius: 10px;
+        }
+
+        .draft-container.compact-mode .pick-header {
+            padding: 12px;
+            gap: 12px;
+        }
+
+        .draft-container.compact-mode .pick-number {
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+            border-width: 2px;
+        }
+
+        .draft-container.compact-mode .team-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+        }
+
+        .draft-container.compact-mode .team-logo img {
+            width: 38px;
+            height: 38px;
+        }
+
+        .draft-container.compact-mode .team-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .draft-container.compact-mode .team-needs {
+            font-size: 0.8rem;
+        }
+
+        .draft-container.compact-mode .pick-trade-info {
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            margin-top: 3px;
+        }
+
+        /* Compact Player Info - Horizontal Layout */
+        .draft-container.compact-mode .player-info {
+            padding: 15px;
+        }
+
+        .draft-container.compact-mode .player-header {
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .draft-container.compact-mode .player-name-section {
+            gap: 12px;
+        }
+
+        .draft-container.compact-mode .player-photo,
+        .draft-container.compact-mode .player-photo-placeholder {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            border-width: 2px;
+        }
+
+        .draft-container.compact-mode .player-name {
+            font-size: 1.5rem;
+        }
+
+        .draft-container.compact-mode .player-school {
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }
+
+        .draft-container.compact-mode .player-position {
+            padding: 6px 15px;
+            font-size: 0.95rem;
+        }
+
+        /* Compact Stats - 3 columns */
+        .draft-container.compact-mode .player-stats {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .draft-container.compact-mode .stat {
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .draft-container.compact-mode .stat-value {
+            font-size: 1.2rem;
+        }
+
+        .draft-container.compact-mode .stat-label {
+            font-size: 0.75rem;
+            margin-top: 3px;
+        }
+
+        /* Compact Analysis */
+        .draft-container.compact-mode .player-analysis {
+            padding: 15px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .draft-container.compact-mode .player-analysis br {
+            display: none;
+        }
+
+        .draft-container.compact-mode .player-analysis strong {
+            color: var(--basketball-orange);
+        }
+
+        .draft-container.compact-mode .draft-grade {
+            padding: 6px 16px;
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        /* Mobile Responsive for Compact Mode */
+        @media (max-width: 800px) {
+            .draft-container.compact-mode .player-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .draft-container.compact-mode .player-name {
+                font-size: 1.2rem;
+            }
+            
+            .draft-container.compact-mode .player-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .draft-container.compact-mode .pick-header {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .draft-container.compact-mode .player-name-section {
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .draft-container.compact-mode .player-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            .draft-container.compact-mode .stat {
+                padding: 8px;
+            }
+            
+            .draft-container.compact-mode .stat-value {
+                font-size: 1rem;
+            }
+        }
+
         .pick-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 40px rgba(232, 93, 4, 0.3);
@@ -2127,6 +2333,15 @@
             <div class="draft-container">
                 <div class="lottery-banner">Lottery Picks (1-14)</div>
 
+                <!-- View Toggle -->
+                <div class="view-toggle-container">
+                    <button class="view-toggle-btn active" id="detailedViewBtn" onclick="setViewMode('detailed')">
+                        <i class="fas fa-list"></i> Detailed View
+                    </button>
+                    <button class="view-toggle-btn" id="compactViewBtn" onclick="setViewMode('compact')">
+                        <i class="fas fa-compress-alt"></i> Compact View
+                    </button>
+                </div>
 
                 <!-- Pick 1 - Sacramento Kings -->
                 <div class="pick-card sac">
@@ -5802,6 +6017,42 @@
 
         document.getElementById('player2-select').addEventListener('change', (e) => {
             updatePlayerStats(e.target.value, 'player2-stats');
+        });
+
+        // ============== VIEW TOGGLE FUNCTIONALITY ==============
+        
+        // View mode state
+        let currentViewMode = localStorage.getItem('draftViewMode') || 'detailed';
+        
+        // Apply view mode on page load
+        function applyViewMode() {
+            const draftContainer = document.querySelector('.draft-container');
+            const detailedBtn = document.getElementById('detailedViewBtn');
+            const compactBtn = document.getElementById('compactViewBtn');
+            
+            if (!draftContainer || !detailedBtn || !compactBtn) return;
+            
+            if (currentViewMode === 'compact') {
+                draftContainer.classList.add('compact-mode');
+                detailedBtn.classList.remove('active');
+                compactBtn.classList.add('active');
+            } else {
+                draftContainer.classList.remove('compact-mode');
+                detailedBtn.classList.add('active');
+                compactBtn.classList.remove('active');
+            }
+        }
+        
+        // Toggle view mode
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            localStorage.setItem('draftViewMode', mode);
+            applyViewMode();
+        }
+        
+        // Initialize view mode when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            applyViewMode();
         });
     
         // ============== MOCK DRAFT BUILDER ==============
