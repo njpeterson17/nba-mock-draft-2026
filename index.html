@@ -45,9 +45,168 @@
             font-size: 1.2rem;
         }
 
-        .draft-container {
-            max-width: 900px;
+        .page-layout {
+            display: flex;
+            gap: 30px;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .draft-container {
+            flex: 1;
+            max-width: 900px;
+        }
+
+        .sidebar {
+            width: 350px;
+            flex-shrink: 0;
+        }
+
+        .rumor-tracker {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .rumor-header {
+            background: linear-gradient(90deg, #e94560, #f39c12);
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+
+        .rumor-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .rumor-header span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .rumor-list {
+            padding: 15px;
+        }
+
+        .rumor-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-left: 3px solid #e94560;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .rumor-item:hover {
+            transform: translateX(5px);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .rumor-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rumor-teams {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .rumor-team-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .rumor-vs {
+            color: #8892b0;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .rumor-headline {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .rumor-details {
+            font-size: 0.85rem;
+            color: #8892b0;
+            line-height: 1.5;
+        }
+
+        .rumor-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .rumor-source {
+            font-size: 0.75rem;
+            color: #f39c12;
+            font-weight: 600;
+        }
+
+        .rumor-time {
+            font-size: 0.75rem;
+            color: #8892b0;
+        }
+
+        .rumor-hot {
+            border-left-color: #f39c12;
+        }
+
+        .rumor-hot .rumor-headline::before {
+            content: "HOT ";
+            color: #f39c12;
+            font-weight: 700;
+        }
+
+        .rumor-new {
+            border-left-color: #27ae60;
+        }
+
+        .rumor-new .rumor-headline::before {
+            content: "NEW ";
+            color: #27ae60;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1200px) {
+            .page-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                order: -1;
+            }
+            .rumor-tracker {
+                position: static;
+                max-height: none;
+            }
+            .rumor-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 12px;
+            }
+            .rumor-item {
+                margin-bottom: 0;
+            }
         }
 
         .lottery-banner {
@@ -222,6 +381,7 @@
         <p>First Round - 30 Picks | Based on Tankathon Big Board</p>
     </div>
 
+    <div class="page-layout">
     <div class="draft-container">
         <div class="lottery-banner">Lottery Picks (1-14)</div>
 
@@ -1248,6 +1408,136 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Trade Rumor Tracker Sidebar -->
+    <div class="sidebar">
+        <div class="rumor-tracker">
+            <div class="rumor-header">
+                <h2>Trade Rumors</h2>
+                <span>Live Updates</span>
+            </div>
+            <div class="rumor-list">
+                <div class="rumor-item rumor-hot">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="LAL" class="rumor-team-logo">
+                        <span class="rumor-vs">+</span>
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="CHI" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Lakers exploring Zach LaVine trade packages</div>
+                    <div class="rumor-details">Los Angeles has made inquiries about the Bulls guard, offering multiple future first-round picks.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">Woj</span>
+                        <span class="rumor-time">2 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item rumor-new">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/bkn.png" alt="BKN" class="rumor-team-logo">
+                        <span class="rumor-vs">+</span>
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/det.png" alt="DET" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Nets shopping multiple picks for established talent</div>
+                    <div class="rumor-details">Brooklyn looking to accelerate rebuild by packaging their lottery pick with future assets.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">Shams</span>
+                        <span class="rumor-time">4 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="MIA" class="rumor-team-logo">
+                        <span class="rumor-vs">+</span>
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/por.png" alt="POR" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Heat interested in moving up in draft</div>
+                    <div class="rumor-details">Miami exploring options to trade into top 10, Blazers listening on pick #11.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">Marc Stein</span>
+                        <span class="rumor-time">5 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item rumor-hot">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/gs.png" alt="GSW" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Warriors evaluating post-Curry era plans</div>
+                    <div class="rumor-details">Golden State considering all options including trading veterans for young assets and picks.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">The Athletic</span>
+                        <span class="rumor-time">6 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/atl.png" alt="ATL" class="rumor-team-logo">
+                        <span class="rumor-vs">+</span>
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/sa.png" alt="SAS" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Spurs inquired about Trae Young</div>
+                    <div class="rumor-details">San Antonio gauging Hawks' asking price on All-Star guard to pair with Wembanyama.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">ESPN</span>
+                        <span class="rumor-time">8 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item rumor-new">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/no.png" alt="NOP" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Pelicans open to trading pick for win-now help</div>
+                    <div class="rumor-details">New Orleans considering packaging #2 pick to acquire immediate contributors around Zion.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">Shams</span>
+                        <span class="rumor-time">10 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/sac.png" alt="SAC" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Kings getting calls on #1 overall pick</div>
+                    <div class="rumor-details">Multiple teams inquiring about Sacramento's willingness to move down, but Kings expected to stay put.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">Sam Amick</span>
+                        <span class="rumor-time">12 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/okc.png" alt="OKC" class="rumor-team-logo">
+                        <span class="rumor-vs">+</span>
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/tor.png" alt="TOR" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">Thunder exploring package deals for multiple picks</div>
+                    <div class="rumor-details">OKC's stockpile of picks attracting interest from rebuilding teams looking to consolidate.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">Woj</span>
+                        <span class="rumor-time">14 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="rumor-item">
+                    <div class="rumor-teams">
+                        <img src="https://a.espncdn.com/i/teamlogos/nba/500/phi.png" alt="PHI" class="rumor-team-logo">
+                    </div>
+                    <div class="rumor-headline">76ers looking to add depth at deadline</div>
+                    <div class="rumor-details">Philadelphia seeking role players on expiring deals to supplement Embiid and Maxey.</div>
+                    <div class="rumor-meta">
+                        <span class="rumor-source">Keith Pompey</span>
+                        <span class="rumor-time">16 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <div class="footer">
