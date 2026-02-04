@@ -1156,6 +1156,292 @@
             margin: 0 auto;
         }
 
+        /* Lottery Simulator Styles */
+        .lottery-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lottery-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .lottery-btn {
+            background: linear-gradient(135deg, var(--basketball-orange), #c44e03);
+            border: none;
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(232, 93, 4, 0.4);
+        }
+
+        .lottery-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(232, 93, 4, 0.6);
+        }
+
+        .lottery-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, #666, #444);
+            border: none;
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .lottery-teams-container {
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.9), rgba(15, 45, 100, 0.95));
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .lottery-header {
+            display: grid;
+            grid-template-columns: 80px 60px 1fr 100px 100px;
+            gap: 15px;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--basketball-orange);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .lottery-team-row {
+            display: grid;
+            grid-template-columns: 80px 60px 1fr 100px 100px;
+            gap: 15px;
+            padding: 12px 20px;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .lottery-team-row:last-child {
+            border-bottom: none;
+        }
+
+        .lottery-team-row:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .lottery-team-row.highlight {
+            background: rgba(232, 93, 4, 0.2);
+            animation: pulse 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .lottery-team-row.moved-up {
+            border-left: 4px solid #00E676;
+        }
+
+        .lottery-team-row.moved-down {
+            border-left: 4px solid var(--nba-red);
+        }
+
+        .lottery-pick-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--basketball-orange), #c44e03);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .lottery-pick-number.final {
+            background: linear-gradient(135deg, var(--nba-red), #a00620);
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .lottery-team-logo {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lottery-team-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .lottery-team-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lottery-odds {
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .lottery-odds .label {
+            font-size: 0.7rem;
+            color: #8892b0;
+            text-transform: uppercase;
+        }
+
+        .lottery-odds .value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: var(--basketball-orange);
+            font-weight: 600;
+        }
+
+        .lottery-results {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+            border-radius: 15px;
+            border: 2px solid var(--basketball-orange);
+            display: none;
+        }
+
+        .lottery-results.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lottery-results h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .lottery-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .lottery-summary-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .lottery-summary-item .pick {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: var(--basketball-orange);
+        }
+
+        .lottery-summary-item .team {
+            font-size: 0.9rem;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .lottery-header {
+                grid-template-columns: 50px 40px 1fr 70px 70px;
+                gap: 8px;
+                padding: 10px;
+                font-size: 0.7rem;
+            }
+
+            .lottery-team-row {
+                grid-template-columns: 50px 40px 1fr 70px 70px;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .lottery-pick-number {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .lottery-team-logo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .lottery-team-logo img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .lottery-team-name {
+                font-size: 0.85rem;
+            }
+
+            .lottery-odds {
+                font-size: 0.8rem;
+            }
+
+            .lottery-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lottery-btn, .reset-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -1277,7 +1563,543 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
+    
+        /* ============== MOCK DRAFT BUILDER STYLES ============== */
+        .builder-layout {
+            display: flex;
+            gap: 20px;
+            min-height: 80vh;
+        }
+
+        /* Left Panel - Player Pool */
+        .builder-left-panel {
+            width: 380px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.95), rgba(15, 45, 100, 0.98));
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .builder-panel-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--basketball-orange);
+        }
+
+        .builder-panel-header h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .builder-panel-header p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Search and Filters */
+        .builder-search {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .builder-search:focus {
+            outline: none;
+            border-color: var(--basketball-orange);
+        }
+
+        .builder-search::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .builder-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .filter-btn {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.3);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--basketball-orange);
+            border-color: var(--basketball-orange);
+            color: #fff;
+        }
+
+        .players-count {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 15px;
+        }
+
+        /* Player Cards in Pool */
+        .player-pool {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .player-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 12px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .player-card:hover {
+            border-color: var(--basketball-orange);
+            transform: translateX(5px);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .player-card.selected {
+            border-color: var(--basketball-orange);
+            background: rgba(232, 93, 4, 0.2);
+        }
+
+        .player-card.drafted {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .player-card-rank {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--basketball-orange), #c44e03);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .player-card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .player-card-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .player-card-meta {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .player-card-position {
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--basketball-orange);
+        }
+
+        /* Right Panel - Draft Board */
+        .builder-right-panel {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .builder-toolbar {
+            background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .builder-progress {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        .builder-progress span {
+            color: var(--basketball-orange);
+            font-size: 1.5rem;
+        }
+
+        .builder-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .builder-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-clear {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-clear:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .btn-random {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: #fff;
+        }
+
+        .btn-random:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-share {
+            background: linear-gradient(135deg, var(--basketball-orange), #ff6b35);
+            color: #fff;
+        }
+
+        .btn-share:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 93, 4, 0.4);
+        }
+
+        .builder-saved {
+            font-size: 0.8rem;
+            color: #27ae60;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .builder-saved.hidden {
+            opacity: 0;
+        }
+
+        /* Draft Board Grid */
+        .draft-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .draft-slot {
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.9), rgba(15, 45, 100, 0.95));
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .draft-slot:hover {
+            border-color: var(--basketball-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .draft-slot.filled {
+            border-color: #27ae60;
+        }
+
+        .draft-slot.active {
+            border-color: var(--basketball-orange);
+            box-shadow: 0 0 20px rgba(232, 93, 4, 0.3);
+        }
+
+        .draft-slot-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .draft-slot-number {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--basketball-orange), #c44e03);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .draft-slot-team {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .draft-slot-team-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .draft-slot-team-logo {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .draft-slot-team-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .draft-slot-player {
+            padding: 15px;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .draft-slot-player.empty {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+        }
+
+        .draft-slot-player.empty:hover {
+            background: rgba(232, 93, 4, 0.1);
+            color: var(--basketball-orange);
+        }
+
+        .draft-slot-player.selected {
+            background: rgba(232, 93, 4, 0.15);
+        }
+
+        .draft-slot-player-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .draft-slot-player-info {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+        }
+
+        .draft-slot-remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: all 0.2s;
+        }
+
+        .draft-slot:hover .draft-slot-remove {
+            opacity: 1;
+        }
+
+        .draft-slot-remove:hover {
+            background: #e74c3c;
+        }
+
+        /* Modal for sharing */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.98), rgba(15, 45, 100, 0.99));
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid var(--basketball-orange);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .modal-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .modal-textarea {
+            width: 100%;
+            min-height: 300px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-family: monospace;
+            font-size: 0.85rem;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--basketball-orange), #ff6b35);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(232, 93, 4, 0.4);
+        }
+
+        .modal-btn.copied {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        /* Responsive for Builder */
+        @media (max-width: 1100px) {
+            .builder-layout {
+                flex-direction: column;
+            }
+            .builder-left-panel {
+                width: 100%;
+                position: static;
+                max-height: 400px;
+            }
+            .draft-board {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .builder-toolbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .builder-actions {
+                justify-content: center;
+            }
+            .draft-board {
+                grid-template-columns: 1fr;
+            }
+        }
+
+</style>
 </head>
 <body>
     <div class="header">
@@ -1289,6 +2111,8 @@
     <div class="nav-container">
         <div class="nav-tabs">
             <button class="nav-tab active" data-section="draft">Mock Draft</button>
+            <button class="nav-tab" data-section="builder">Mock Draft Builder</button>
+            <button class="nav-tab" data-section="lottery">Lottery Simulator</button>
             <button class="nav-tab" data-section="bigboard">Big Board</button>
             <button class="nav-tab" data-section="teams">Team Summaries</button>
             <button class="nav-tab" data-section="grades">Draft Grades</button>
@@ -3373,6 +4197,40 @@
         </div>
     </div>
 
+    <!-- Section: Lottery Simulator -->
+    <div class="section" id="lottery-section">
+        <div class="section-header">
+            <h2>🎲 NBA Draft Lottery Simulator</h2>
+            <p>Simulate the 2026 NBA Draft Lottery based on official odds</p>
+        </div>
+        
+        <div class="lottery-container">
+            <div class="lottery-controls">
+                <button class="lottery-btn" id="simulateBtn" onclick="simulateLottery()">Simulate Lottery</button>
+                <button class="reset-btn" id="resetBtn" onclick="resetLottery()">Reset</button>
+            </div>
+            
+            <div class="lottery-teams-container">
+                <div class="lottery-header">
+                    <div>Pick</div>
+                    <div></div>
+                    <div>Team</div>
+                    <div style="text-align: center;">#1 Pick</div>
+                    <div style="text-align: center;">Top 4</div>
+                </div>
+                <div id="lottery-teams-list">
+                    <!-- Teams will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="lottery-results" id="lottery-results">
+                <h3>🏆 Lottery Results</h3>
+                <div class="lottery-summary" id="lottery-summary">
+                    <!-- Summary will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Section: Big Board -->
     <div class="section" id="bigboard-section">
@@ -4945,6 +5803,684 @@
         document.getElementById('player2-select').addEventListener('change', (e) => {
             updatePlayerStats(e.target.value, 'player2-stats');
         });
-    </script>
+    
+        // ============== MOCK DRAFT BUILDER ==============
+        
+        // Player data - top 60 prospects
+        const builderPlayers = [
+            { rank: 1, name: "Darryn Peterson", position: "SG", school: "Kansas", height: "6'6"", ppg: 21.1, rpg: 4.3, apg: 1.8 },
+            { rank: 2, name: "Cameron Boozer", position: "PF", school: "Duke", height: "6'9"", ppg: 23.5, rpg: 9.8, apg: 4.1 },
+            { rank: 3, name: "AJ Dybantsa", position: "SF", school: "BYU", height: "6'9"", ppg: 23.1, rpg: 7.0, apg: 4.0 },
+            { rank: 4, name: "Kingston Flemings", position: "PG", school: "Houston", height: "6'4"", ppg: 17.5, rpg: 3.4, apg: 5.4 },
+            { rank: 5, name: "Caleb Wilson", position: "SF", school: "North Carolina", height: "6'10"", ppg: 20.0, rpg: 9.8, apg: 2.8 },
+            { rank: 6, name: "Keaton Wagler", position: "SG", school: "Illinois", height: "6'6"", ppg: 18.1, rpg: 5.0, apg: 4.2 },
+            { rank: 7, name: "Mikel Brown Jr.", position: "PG", school: "Louisville", height: "6'5"", ppg: 16.4, rpg: 2.9, apg: 5.0 },
+            { rank: 8, name: "Nate Ament", position: "SF", school: "Tennessee", height: "6'10"", ppg: 16.6, rpg: 6.4, apg: 2.4 },
+            { rank: 9, name: "Labaron Philon", position: "PG", school: "Alabama", height: "6'4"", ppg: 21.6, rpg: 3.5, apg: 5.0 },
+            { rank: 10, name: "Braylon Mullins", position: "SG", school: "UConn", height: "6'6"", ppg: 11.7, rpg: 3.5, apg: 1.3 },
+            { rank: 11, name: "Hannes Steinbach", position: "PF", school: "Washington", height: "6'11"", ppg: 18.5, rpg: 12.8, apg: 2.7 },
+            { rank: 12, name: "Yaxel Lendeborg", position: "PF", school: "Michigan", height: "6'10"", ppg: 14.7, rpg: 7.2, apg: 3.2 },
+            { rank: 13, name: "Koa Peat", position: "PF", school: "Arizona", height: "6'8"", ppg: 13.8, rpg: 4.9, apg: 2.8 },
+            { rank: 14, name: "Darius Acuff", position: "PG", school: "Arkansas", height: "6'3"", ppg: 20.2, rpg: 2.9, apg: 6.4 },
+            { rank: 15, name: "Brayden Burries", position: "SG", school: "Arizona", height: "6'4"", ppg: 15.2, rpg: 4.4, apg: 2.8 },
+            { rank: 16, name: "Amari Allen", position: "SF", school: "Alabama", height: "6'8"", ppg: 11.7, rpg: 7.8, apg: 3.4 },
+            { rank: 17, name: "Jayden Quaintance", position: "PF", school: "Kentucky", height: "6'11"", ppg: 5.0, rpg: 5.0, apg: 0.5 },
+            { rank: 18, name: "Thomas Haugh", position: "PF", school: "Florida", height: "6'9"", ppg: 17.6, rpg: 6.4, apg: 1.9 },
+            { rank: 19, name: "Patrick Ngongba II", position: "C", school: "Duke", height: "6'11"", ppg: 11.1, rpg: 6.0, apg: 2.0 },
+            { rank: 20, name: "Tounde Yessoufou", position: "SG", school: "Baylor", height: "6'5"", ppg: 17.5, rpg: 5.8, apg: 1.8 },
+            { rank: 21, name: "Cameron Carr", position: "SG", school: "Baylor", height: "6'5"", ppg: 19.4, rpg: 5.7, apg: 2.6 },
+            { rank: 22, name: "Karim Lopez", position: "SF", school: "New Zealand", height: "6'8"", ppg: 11.0, rpg: 6.0, apg: 1.9 },
+            { rank: 23, name: "Chris Cenac Jr.", position: "PF", school: "Houston", height: "6'11"", ppg: 9.3, rpg: 7.7, apg: 0.8 },
+            { rank: 24, name: "Christian Anderson", position: "PG", school: "Texas Tech", height: "6'3"", ppg: 19.6, rpg: 3.2, apg: 7.5 },
+            { rank: 25, name: "Malachi Moreno", position: "C", school: "Kentucky", height: "7'0"", ppg: 8.6, rpg: 6.5, apg: 1.8 },
+            { rank: 26, name: "Joshua Jefferson", position: "PF", school: "Iowa State", height: "6'9"", ppg: 17.6, rpg: 7.9, apg: 5.6 },
+            { rank: 27, name: "Tyler Tanner", position: "PG", school: "Vanderbilt", height: "6'0"", ppg: 17.5, rpg: 3.6, apg: 5.2 },
+            { rank: 28, name: "Morez Johnson Jr.", position: "PF", school: "Michigan", height: "6'9"", ppg: 13.8, rpg: 7.0, apg: 1.3 },
+            { rank: 29, name: "Aday Mara", position: "C", school: "Michigan", height: "7'3"", ppg: 10.9, rpg: 8.5, apg: 2.5 },
+            { rank: 30, name: "Dailyn Swain", position: "SF", school: "Texas", height: "6'8"", ppg: 10.5, rpg: 5.4, apg: 2.6 },
+            { rank: 31, name: "Flory Bidunga", position: "C", school: "Kansas", height: "6'10"", ppg: 14.5, rpg: 8.9, apg: 0.9 },
+            { rank: 32, name: "Sergio de Larrea", position: "PG", school: "Valencia", height: "6'6"", ppg: 9.7, rpg: 3.1, apg: 3.3 },
+            { rank: 33, name: "Ebuka Okorie", position: "PG", school: "Stanford", height: "6'2"", ppg: 21.8, rpg: 3.2, apg: 3.3 },
+            { rank: 34, name: "Isaiah Evans", position: "SF", school: "Duke", height: "6'6"", ppg: 14.3, rpg: 3.2, apg: 1.8 },
+            { rank: 35, name: "Meleek Thomas", position: "PG", school: "Arkansas", height: "6'5"", ppg: 15.0, rpg: 4.1, apg: 2.7 },
+            { rank: 36, name: "Braden Smith", position: "PG", school: "Purdue", height: "6'0"", ppg: 15.3, rpg: 3.8, apg: 8.9 },
+            { rank: 37, name: "JT Toppin", position: "PF", school: "Texas Tech", height: "6'9"", ppg: 21.8, rpg: 10.6, apg: 1.4 },
+            { rank: 38, name: "Paul McNeil Jr.", position: "SG", school: "NC State", height: "6'5"", ppg: 14.0, rpg: 4.0, apg: 2.0 },
+            { rank: 39, name: "Henri Veesaar", position: "C", school: "North Carolina", height: "7'0"", ppg: 16.8, rpg: 9.0, apg: 1.5 },
+            { rank: 40, name: "Juke Harris", position: "SG", school: "Wake Forest", height: "6'7"", ppg: 20.9, rpg: 6.2, apg: 2.1 },
+            { rank: 41, name: "Richie Saunders", position: "SG", school: "BYU", height: "6'5"", ppg: 19.5, rpg: 5.7, apg: 1.8 },
+            { rank: 42, name: "Dash Daniels", position: "SG", school: "Melbourne", height: "6'6"", ppg: 5.6, rpg: 3.1, apg: 0.9 },
+            { rank: 43, name: "Alex Karaban", position: "SF", school: "UConn", height: "6'8"", ppg: 13.5, rpg: 5.6, apg: 1.9 },
+            { rank: 44, name: "Ryan Conwell", position: "SG", school: "Louisville", height: "6'4"", ppg: 19.1, rpg: 5.0, apg: 1.8 },
+            { rank: 45, name: "Zuby Ejiofor", position: "PF", school: "St. John's", height: "6'9"", ppg: 15.7, rpg: 7.4, apg: 0.8 },
+            { rank: 46, name: "Tarris Reed Jr.", position: "C", school: "UConn", height: "6'11"", ppg: 14.1, rpg: 7.8, apg: 1.1 },
+            { rank: 47, name: "Motiejus Krivas", position: "C", school: "Arizona", height: "7'2"", ppg: 11.0, rpg: 8.3, apg: 0.6 },
+            { rank: 48, name: "JoJo Tugler", position: "PF", school: "Houston", height: "6'8"", ppg: 7.9, rpg: 5.6, apg: 0.7 },
+            { rank: 49, name: "Alex Condon", position: "PF", school: "Florida", height: "7'0"", ppg: 13.8, rpg: 8.1, apg: 1.0 },
+            { rank: 50, name: "Milan Momcilovic", position: "SF", school: "Iowa State", height: "6'8"", ppg: 18.6, rpg: 3.1, apg: 1.2 },
+            { rank: 51, name: "Nate Bittle", position: "C", school: "Oregon", height: "7'0"", ppg: 16.3, rpg: 6.7, apg: 0.9 },
+            { rank: 52, name: "Bruce Thornton", position: "PG", school: "Ohio State", height: "6'2"", ppg: 19.5, rpg: 2.7, apg: 3.6 },
+            { rank: 53, name: "Miles Byrd", position: "SG", school: "San Diego State", height: "6'6"", ppg: 10.8, rpg: 4.1, apg: 1.5 },
+            { rank: 54, name: "Tamin Lipsey", position: "PG", school: "Iowa State", height: "6'1"", ppg: 13.4, rpg: 3.8, apg: 5.5 },
+            { rank: 55, name: "Johann Grunloh", position: "C", school: "Virginia", height: "7'0"", ppg: 8.0, rpg: 6.3, apg: 0.4 },
+            { rank: 56, name: "Zvonimir Ivisic", position: "C", school: "Illinois", height: "7'2"", ppg: 7.2, rpg: 5.0, apg: 0.8 },
+            { rank: 57, name: "Darrion Williams", position: "SF", school: "NC State", height: "6'6"", ppg: 14.7, rpg: 5.4, apg: 2.1 },
+            { rank: 58, name: "Tomislav Ivisic", position: "C", school: "Illinois", height: "7'1"", ppg: 10.1, rpg: 5.3, apg: 0.9 },
+            { rank: 59, name: "Milos Uzan", position: "PG", school: "Houston", height: "6'4"", ppg: 11.4, rpg: 3.1, apg: 4.0 },
+            { rank: 60, name: "Mouhamed Faye", position: "C", school: "Reggio Emilia", height: "6'10"", ppg: 8.5, rpg: 5.2, apg: 0.5 }
+        ];
+
+        // Draft order data - 60 picks
+        const draftOrder = [
+            { pick: 1, team: "Sacramento Kings", logo: "sac", code: "sac" },
+            { pick: 2, team: "New Orleans Pelicans", logo: "no", code: "no" },
+            { pick: 3, team: "Indiana Pacers", logo: "ind", code: "ind" },
+            { pick: 4, team: "Brooklyn Nets", logo: "bkn", code: "bkn" },
+            { pick: 5, team: "Washington Wizards", logo: "wsh", code: "wsh" },
+            { pick: 6, team: "Utah Jazz", logo: "utah", code: "uta" },
+            { pick: 7, team: "Dallas Mavericks", logo: "dal", code: "dal" },
+            { pick: 8, team: "Milwaukee Bucks", logo: "mil", code: "mil" },
+            { pick: 9, team: "Memphis Grizzlies", logo: "mem", code: "mem" },
+            { pick: 10, team: "Charlotte Hornets", logo: "cha", code: "cha" },
+            { pick: 11, team: "Portland Trail Blazers", logo: "por", code: "por" },
+            { pick: 12, team: "LA Clippers", logo: "lac", code: "lac" },
+            { pick: 13, team: "Chicago Bulls", logo: "chi", code: "chi" },
+            { pick: 14, team: "Atlanta Hawks", logo: "atl", code: "atl" },
+            { pick: 15, team: "Miami Heat", logo: "mia", code: "mia" },
+            { pick: 16, team: "Los Angeles Lakers", logo: "lal", code: "lal" },
+            { pick: 17, team: "Minnesota Timberwolves", logo: "min", code: "min" },
+            { pick: 18, team: "San Antonio Spurs", logo: "sa", code: "sas" },
+            { pick: 19, team: "Detroit Pistons", logo: "det", code: "det" },
+            { pick: 20, team: "Toronto Raptors", logo: "tor", code: "tor" },
+            { pick: 21, team: "Phoenix Suns", logo: "phx", code: "phx" },
+            { pick: 22, team: "New York Knicks", logo: "ny", code: "ny" },
+            { pick: 23, team: "Houston Rockets", logo: "hou", code: "hou" },
+            { pick: 24, team: "Denver Nuggets", logo: "den", code: "den" },
+            { pick: 25, team: "Oklahoma City Thunder", logo: "okc", code: "okc" },
+            { pick: 26, team: "Cleveland Cavaliers", logo: "cle", code: "cle" },
+            { pick: 27, team: "Golden State Warriors", logo: "gs", code: "gsw" },
+            { pick: 28, team: "Boston Celtics", logo: "bos", code: "bos" },
+            { pick: 29, team: "Orlando Magic", logo: "orl", code: "orl" },
+            { pick: 30, team: "Philadelphia 76ers", logo: "phi", code: "phi" },
+            { pick: 31, team: "Sacramento Kings", logo: "sac", code: "sac" },
+            { pick: 32, team: "Chicago Bulls", logo: "chi", code: "chi" },
+            { pick: 33, team: "Memphis Grizzlies", logo: "mem", code: "mem" },
+            { pick: 34, team: "New York Knicks", logo: "ny", code: "ny" },
+            { pick: 35, team: "Brooklyn Nets", logo: "bkn", code: "bkn" },
+            { pick: 36, team: "San Antonio Spurs", logo: "sa", code: "sas" },
+            { pick: 37, team: "Oklahoma City Thunder", logo: "okc", code: "okc" },
+            { pick: 38, team: "LA Clippers", logo: "lac", code: "lac" },
+            { pick: 39, team: "Boston Celtics", logo: "bos", code: "bos" },
+            { pick: 40, team: "Sacramento Kings", logo: "sac", code: "sac" },
+            { pick: 41, team: "San Antonio Spurs", logo: "sa", code: "sas" },
+            { pick: 42, team: "LA Clippers", logo: "lac", code: "lac" },
+            { pick: 43, team: "Washington Wizards", logo: "wsh", code: "wsh" },
+            { pick: 44, team: "Brooklyn Nets", logo: "bkn", code: "bkn" },
+            { pick: 45, team: "Orlando Magic", logo: "orl", code: "orl" },
+            { pick: 46, team: "San Antonio Spurs", logo: "sa", code: "sas" },
+            { pick: 47, team: "Charlotte Hornets", logo: "cha", code: "cha" },
+            { pick: 48, team: "Houston Rockets", logo: "hou", code: "hou" },
+            { pick: 49, team: "LA Clippers", logo: "lac", code: "lac" },
+            { pick: 50, team: "Toronto Raptors", logo: "tor", code: "tor" },
+            { pick: 51, team: "Washington Wizards", logo: "wsh", code: "wsh" },
+            { pick: 52, team: "Washington Wizards", logo: "wsh", code: "wsh" },
+            { pick: 53, team: "Toronto Raptors", logo: "tor", code: "tor" },
+            { pick: 54, team: "New York Knicks", logo: "ny", code: "ny" },
+            { pick: 55, team: "Atlanta Hawks", logo: "atl", code: "atl" },
+            { pick: 56, team: "Houston Rockets", logo: "hou", code: "hou" },
+            { pick: 57, team: "Phoenix Suns", logo: "phx", code: "phx" },
+            { pick: 58, team: "Minnesota Timberwolves", logo: "min", code: "min" },
+            { pick: 59, team: "New York Knicks", logo: "ny", code: "ny" },
+            { pick: 60, team: "Washington Wizards", logo: "wsh", code: "wsh" }
+        ];
+
+        // State
+        let selectedPlayer = null;
+        let draftSelections = {}; // pick number -> player object
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        // DOM Elements
+        const playerPool = document.getElementById('player-pool');
+        const draftBoard = document.getElementById('draft-board');
+        const playerSearch = document.getElementById('player-search');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const playersCount = document.getElementById('players-count');
+        const progressCount = document.getElementById('progress-count');
+        const clearAllBtn = document.getElementById('clear-all-btn');
+        const randomFillBtn = document.getElementById('random-fill-btn');
+        const shareMockBtn = document.getElementById('share-mock-btn');
+        const saveIndicator = document.getElementById('save-indicator');
+        const shareModal = document.getElementById('share-modal');
+        const modalClose = document.getElementById('modal-close');
+        const shareText = document.getElementById('share-text');
+        const copyBtn = document.getElementById('copy-btn');
+
+        // Initialize
+        function initBuilder() {
+            loadFromStorage();
+            renderPlayerPool();
+            renderDraftBoard();
+            updateProgress();
+        }
+
+        // Render player pool
+        function renderPlayerPool() {
+            playerPool.innerHTML = '';
+            
+            const filteredPlayers = builderPlayers.filter(player => {
+                const matchesSearch = player.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                     player.school.toLowerCase().includes(searchTerm.toLowerCase());
+                const matchesPosition = currentFilter === 'all' || player.position.includes(currentFilter);
+                return matchesSearch && matchesPosition;
+            });
+
+            playersCount.textContent = `${filteredPlayers.length} players shown (${getAvailablePlayers().length} available)`;
+
+            filteredPlayers.forEach(player => {
+                const isDrafted = Object.values(draftSelections).some(p => p.rank === player.rank);
+                const isSelected = selectedPlayer && selectedPlayer.rank === player.rank;
+                
+                const card = document.createElement('div');
+                card.className = `player-card ${isDrafted ? 'drafted' : ''} ${isSelected ? 'selected' : ''}`;
+                card.innerHTML = `
+                    <div class="player-card-rank">${player.rank}</div>
+                    <div class="player-card-info">
+                        <div class="player-card-name">${player.name}</div>
+                        <div class="player-card-meta">${player.school} | ${player.height}</div>
+                    </div>
+                    <div class="player-card-position">${player.position}</div>
+                `;
+                
+                if (!isDrafted) {
+                    card.addEventListener('click', () => selectPlayer(player));
+                }
+                
+                playerPool.appendChild(card);
+            });
+        }
+
+        // Render draft board
+        function renderDraftBoard() {
+            draftBoard.innerHTML = '';
+            
+            draftOrder.forEach(slot => {
+                const selectedPlayer = draftSelections[slot.pick];
+                const isActive = selectedPlayer === null && this.selectedPlayer !== null;
+                
+                const slotEl = document.createElement('div');
+                slotEl.className = `draft-slot ${selectedPlayer ? 'filled' : ''} ${isActive ? 'active' : ''}`;
+                slotEl.innerHTML = `
+                    <div class="draft-slot-header">
+                        <div class="draft-slot-number">${slot.pick}</div>
+                        <div class="draft-slot-team">
+                            <div class="draft-slot-team-name">${slot.team}</div>
+                        </div>
+                        <div class="draft-slot-team-logo">
+                            <img src="https://a.espncdn.com/i/teamlogos/nba/500/${slot.logo}.png" alt="${slot.team}">
+                        </div>
+                    </div>
+                    <div class="draft-slot-player ${selectedPlayer ? '' : 'empty'}" data-pick="${slot.pick}">
+                        ${selectedPlayer ? `
+                            <div class="draft-slot-player-name">${selectedPlayer.name}</div>
+                            <div class="draft-slot-player-info">${selectedPlayer.position} | ${selectedPlayer.school}</div>
+                        ` : '<span>Click to Select Player</span>'}
+                    </div>
+                    ${selectedPlayer ? `<button class="draft-slot-remove" data-pick="${slot.pick}">&times;</button>` : ''}
+                `;
+                
+                const playerArea = slotEl.querySelector('.draft-slot-player');
+                playerArea.addEventListener('click', () => handleSlotClick(slot.pick));
+                
+                const removeBtn = slotEl.querySelector('.draft-slot-remove');
+                if (removeBtn) {
+                    removeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        removePlayer(slot.pick);
+                    });
+                }
+                
+                draftBoard.appendChild(slotEl);
+            });
+        }
+
+        // Handle player selection
+        function selectPlayer(player) {
+            selectedPlayer = player;
+            renderPlayerPool();
+            renderDraftBoard();
+        }
+
+        // Handle slot click
+        function handleSlotClick(pick) {
+            if (selectedPlayer && !draftSelections[pick]) {
+                // Check if player already drafted
+                const alreadyDrafted = Object.values(draftSelections).some(p => p.rank === selectedPlayer.rank);
+                if (!alreadyDrafted) {
+                    draftSelections[pick] = selectedPlayer;
+                    selectedPlayer = null;
+                    renderPlayerPool();
+                    renderDraftBoard();
+                    updateProgress();
+                    saveToStorage();
+                }
+            }
+        }
+
+        // Remove player from slot
+        function removePlayer(pick) {
+            delete draftSelections[pick];
+            renderPlayerPool();
+            renderDraftBoard();
+            updateProgress();
+            saveToStorage();
+        }
+
+        // Get available players
+        function getAvailablePlayers() {
+            const draftedRanks = Object.values(draftSelections).map(p => p.rank);
+            return builderPlayers.filter(p => !draftedRanks.includes(p.rank));
+        }
+
+        // Update progress
+        function updateProgress() {
+            const count = Object.keys(draftSelections).length;
+            progressCount.textContent = `${count}/60`;
+        }
+
+        // Clear all selections
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all selections?')) {
+                draftSelections = {};
+                selectedPlayer = null;
+                renderPlayerPool();
+                renderDraftBoard();
+                updateProgress();
+                saveToStorage();
+            }
+        }
+
+        // Random fill
+        function randomFill() {
+            const available = getAvailablePlayers();
+            const emptySlots = draftOrder.filter(s => !draftSelections[s.pick]);
+            
+            // Shuffle available players
+            const shuffled = [...available].sort(() => Math.random() - 0.5);
+            
+            emptySlots.forEach((slot, index) => {
+                if (shuffled[index]) {
+                    draftSelections[slot.pick] = shuffled[index];
+                }
+            });
+            
+            renderPlayerPool();
+            renderDraftBoard();
+            updateProgress();
+            saveToStorage();
+        }
+
+        // Generate share text
+        function generateShareText() {
+            let text = "🏀 My 2026 NBA Mock Draft\n";
+            text += "═══════════════════════════\n\n";
+            
+            // First round
+            text += "FIRST ROUND\n";
+            text += "-----------\n";
+            for (let i = 1; i <= 30; i++) {
+                const player = draftSelections[i];
+                const slot = draftOrder.find(s => s.pick === i);
+                if (player) {
+                    text += `#${i} ${slot.team}: ${player.name} (${player.position})\n`;
+                } else {
+                    text += `#${i} ${slot.team}: [Not Selected]\n`;
+                }
+            }
+            
+            text += "\nSECOND ROUND\n";
+            text += "------------\n";
+            for (let i = 31; i <= 60; i++) {
+                const player = draftSelections[i];
+                const slot = draftOrder.find(s => s.pick === i);
+                if (player) {
+                    text += `#${i} ${slot.team}: ${player.name} (${player.position})\n`;
+                } else {
+                    text += `#${i} ${slot.team}: [Not Selected]\n`;
+                }
+            }
+            
+            text += "\nCreated with the 2026 NBA Mock Draft Builder";
+            return text;
+        }
+
+        // Share mock
+        function shareMock() {
+            shareText.value = generateShareText();
+            shareModal.classList.add('active');
+        }
+
+        // Copy to clipboard
+        function copyToClipboard() {
+            shareText.select();
+            document.execCommand('copy');
+            copyBtn.textContent = 'Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy to Clipboard';
+                copyBtn.classList.remove('copied');
+            }, 2000);
+        }
+
+        // Close modal
+        function closeModal() {
+            shareModal.classList.remove('active');
+        }
+
+        // Save to localStorage
+        function saveToStorage() {
+            localStorage.setItem('mockDraft2026', JSON.stringify(draftSelections));
+            saveIndicator.classList.remove('hidden');
+            setTimeout(() => {
+                saveIndicator.classList.add('hidden');
+            }, 2000);
+        }
+
+        // Load from localStorage
+        function loadFromStorage() {
+            const saved = localStorage.getItem('mockDraft2026');
+            if (saved) {
+                draftSelections = JSON.parse(saved);
+            }
+        }
+
+        // Event listeners
+        playerSearch.addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            renderPlayerPool();
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.position;
+                renderPlayerPool();
+            });
+        });
+
+        clearAllBtn.addEventListener('click', clearAll);
+        randomFillBtn.addEventListener('click', randomFill);
+        shareMockBtn.addEventListener('click', shareMock);
+        modalClose.addEventListener('click', closeModal);
+        copyBtn.addEventListener('click', copyToClipboard);
+
+        // Close modal on outside click
+        shareModal.addEventListener('click', (e) => {
+            if (e.target === shareModal) {
+                closeModal();
+            }
+        });
+
+        // Initialize when builder section is shown
+        document.querySelector('.nav-tab[data-section="builder"]').addEventListener('click', () => {
+            setTimeout(initBuilder, 100);
+        });
+
+        // Initialize on page load if builder is active
+        if (document.getElementById('builder-section').classList.contains('active')) {
+            initBuilder();
+        }
+
+        // ============== LOTTERY SIMULATOR ==============
+        
+        const lotteryTeams = [
+            { id: 'sac', name: 'Sacramento Kings', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/sac.png', odds1: 14.0, top4: 52.1, originalPick: 1 },
+            { id: 'no', name: 'New Orleans Pelicans', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/no.png', odds1: 14.0, top4: 52.1, originalPick: 2 },
+            { id: 'ind', name: 'Indiana Pacers', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/ind.png', odds1: 14.0, top4: 52.1, originalPick: 3 },
+            { id: 'bkn', name: 'Brooklyn Nets', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/bkn.png', odds1: 12.5, top4: 48.1, originalPick: 4 },
+            { id: 'wsh', name: 'Washington Wizards', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/wsh.png', odds1: 10.5, top4: 42.1, originalPick: 5 },
+            { id: 'uta', name: 'Utah Jazz', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/utah.png', odds1: 9.0, top4: 37.2, originalPick: 6 },
+            { id: 'dal', name: 'Dallas Mavericks', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/dal.png', odds1: 7.5, top4: 31.9, originalPick: 7 },
+            { id: 'mil', name: 'Milwaukee Bucks', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/mil.png', odds1: 6.0, top4: 26.7, originalPick: 8 },
+            { id: 'mem', name: 'Memphis Grizzlies', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/mem.png', odds1: 4.5, top4: 20.6, originalPick: 9 },
+            { id: 'cha', name: 'Charlotte Hornets', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/cha.png', odds1: 3.0, top4: 14.2, originalPick: 10 },
+            { id: 'por', name: 'Portland Trail Blazers', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/por.png', odds1: 2.0, top4: 9.8, originalPick: 11 },
+            { id: 'lac', name: 'LA Clippers', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/lac.png', odds1: 1.5, top4: 7.5, originalPick: 12 },
+            { id: 'chi', name: 'Chicago Bulls', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/chi.png', odds1: 1.0, top4: 5.1, originalPick: 13 },
+            { id: 'atl', name: 'Atlanta Hawks', logo: 'https://a.espncdn.com/i/teamlogos/nba/500/atl.png', odds1: 0.5, top4: 2.6, originalPick: 14 }
+        ];
+
+        let currentLotteryOrder = [...lotteryTeams];
+        let isSimulating = false;
+
+        function renderLotteryTeams() {
+            const container = document.getElementById('lottery-teams-list');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            currentLotteryOrder.forEach((team, index) => {
+                const row = document.createElement('div');
+                row.className = 'lottery-team-row';
+                row.id = `lottery-row-${index}`;
+                
+                const pickChange = team.originalPick - (index + 1);
+                if (pickChange > 0) {
+                    row.classList.add('moved-up');
+                } else if (pickChange < 0) {
+                    row.classList.add('moved-down');
+                }
+                
+                row.innerHTML = `
+                    <div class="lottery-pick-number" id="pick-number-${index}">${index + 1}</div>
+                    <div class="lottery-team-logo"><img src="${team.logo}" alt="${team.name}"></div>
+                    <div class="lottery-team-name">${team.name}</div>
+                    <div class="lottery-odds">
+                        <div class="value">${team.odds1}%</div>
+                        <div class="label">#1 Pick</div>
+                    </div>
+                    <div class="lottery-odds">
+                        <div class="value">${team.top4}%</div>
+                        <div class="label">Top 4</div>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function simulateLottery() {
+            if (isSimulating) return;
+            isSimulating = true;
+            
+            const simulateBtn = document.getElementById('simulateBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultsDiv = document.getElementById('lottery-results');
+            
+            if (simulateBtn) simulateBtn.disabled = true;
+            if (resetBtn) resetBtn.disabled = true;
+            if (resultsDiv) resultsDiv.classList.remove('show');
+            
+            // Create weighted pool based on odds
+            let pool = [];
+            lotteryTeams.forEach((team, index) => {
+                const weight = Math.round(team.odds1 * 10);
+                for (let i = 0; i < weight; i++) {
+                    pool.push(index);
+                }
+            });
+            
+            // Shuffle animation
+            let shuffleCount = 0;
+            const maxShuffles = 20;
+            const shuffleInterval = setInterval(() => {
+                // Random shuffle for animation
+                const shuffled = [...lotteryTeams].sort(() => Math.random() - 0.5);
+                currentLotteryOrder = shuffled;
+                renderLotteryTeams();
+                
+                // Highlight random row
+                const randomRow = Math.floor(Math.random() * 14);
+                const row = document.getElementById(`lottery-row-${randomRow}`);
+                if (row) row.classList.add('highlight');
+                setTimeout(() => {
+                    if (row) row.classList.remove('highlight');
+                }, 100);
+                
+                shuffleCount++;
+                if (shuffleCount >= maxShuffles) {
+                    clearInterval(shuffleInterval);
+                    finalizeLottery();
+                }
+            }, 100);
+        }
+
+        function finalizeLottery() {
+            // Create weighted pool for actual selection
+            let pool = [];
+            lotteryTeams.forEach((team) => {
+                const weight = Math.round(team.odds1 * 10);
+                for (let i = 0; i < weight; i++) {
+                    pool.push(team);
+                }
+            });
+            
+            // Select top 4 based on weighted odds
+            const selected = new Set();
+            const top4 = [];
+            
+            while (top4.length < 4 && selected.size < lotteryTeams.length) {
+                const randomIndex = Math.floor(Math.random() * pool.length);
+                const team = pool[randomIndex];
+                if (!selected.has(team.id)) {
+                    selected.add(team.id);
+                    top4.push(team);
+                }
+            }
+            
+            // Remaining teams in original order
+            const remaining = lotteryTeams.filter(t => !selected.has(t.id));
+            
+            // Final order: top 4 selected + remaining teams
+            currentLotteryOrder = [...top4, ...remaining];
+            
+            renderLotteryTeams();
+            showLotteryResults(top4);
+            
+            // Add final animation to top 4
+            for (let i = 0; i < 4; i++) {
+                const pickNumber = document.getElementById(`pick-number-${i}`);
+                if (pickNumber) pickNumber.classList.add('final');
+            }
+            
+            isSimulating = false;
+            const simulateBtn = document.getElementById('simulateBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            if (simulateBtn) simulateBtn.disabled = false;
+            if (resetBtn) resetBtn.disabled = false;
+        }
+
+        function showLotteryResults(top4) {
+            const summary = document.getElementById('lottery-summary');
+            const resultsDiv = document.getElementById('lottery-results');
+            if (!summary || !resultsDiv) return;
+            
+            summary.innerHTML = '';
+            
+            top4.forEach((team, index) => {
+                const item = document.createElement('div');
+                item.className = 'lottery-summary-item';
+                item.innerHTML = `
+                    <div class="pick">#${index + 1} Pick</div>
+                    <div class="team">${team.name}</div>
+                `;
+                summary.appendChild(item);
+            });
+            
+            resultsDiv.classList.add('show');
+        }
+
+        function resetLottery() {
+            if (isSimulating) return;
+            
+            currentLotteryOrder = [...lotteryTeams];
+            const resultsDiv = document.getElementById('lottery-results');
+            if (resultsDiv) resultsDiv.classList.remove('show');
+            renderLotteryTeams();
+        }
+
+        // Initialize lottery on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderLotteryTeams();
+        });
+
+</script>
+
+    <!-- Section: Mock Draft Builder -->
+    <div class="section" id="builder-section">
+        <div class="section-header">
+            <h2>🛠️ Mock Draft Builder</h2>
+            <p>Create your own 2026 NBA Mock Draft - Select players and assign them to teams</p>
+        </div>
+        <div class="builder-layout">
+            <!-- Left Panel - Player Pool -->
+            <div class="builder-left-panel">
+                <div class="builder-panel-header">
+                    <h3>Available Players</h3>
+                    <p>Click a player, then click a draft slot to assign</p>
+                </div>
+                <input type="text" class="builder-search" id="player-search" placeholder="Search players...">
+                <div class="builder-filters">
+                    <button class="filter-btn active" data-position="all">All</button>
+                    <button class="filter-btn" data-position="PG">PG</button>
+                    <button class="filter-btn" data-position="SG">SG</button>
+                    <button class="filter-btn" data-position="SF">SF</button>
+                    <button class="filter-btn" data-position="PF">PF</button>
+                    <button class="filter-btn" data-position="C">C</button>
+                </div>
+                <div class="players-count" id="players-count">60 players available</div>
+                <div class="player-pool" id="player-pool">
+                    <!-- Player cards will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Right Panel - Draft Board -->
+            <div class="builder-right-panel">
+                <div class="builder-toolbar">
+                    <div class="builder-progress">
+                        Progress: <span id="progress-count">0/60</span> picks made
+                    </div>
+                    <div class="builder-actions">
+                        <button class="builder-btn btn-clear" id="clear-all-btn">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                        <button class="builder-btn btn-random" id="random-fill-btn">
+                            <i class="fas fa-random"></i> Random Fill
+                        </button>
+                        <button class="builder-btn btn-share" id="share-mock-btn">
+                            <i class="fas fa-share"></i> Share My Mock
+                        </button>
+                    </div>
+                    <div class="builder-saved hidden" id="save-indicator">
+                        <i class="fas fa-check"></i> Auto-saved
+                    </div>
+                </div>
+                <div class="draft-board" id="draft-board">
+                    <!-- Draft slots will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="share-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <h3 class="modal-title">Share Your Mock Draft</h3>
+            <textarea class="modal-textarea" id="share-text" readonly></textarea>
+            <button class="modal-btn" id="copy-btn">Copy to Clipboard</button>
+        </div>
+    </div>
+
 </body>
 </html>
