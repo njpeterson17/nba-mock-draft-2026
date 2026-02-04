@@ -105,9 +105,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .team-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
         }
 
         .team-info h3 {
@@ -152,7 +157,7 @@
 
         .player-stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             gap: 15px;
             margin-bottom: 20px;
         }
@@ -206,7 +211,7 @@
 
         @media (max-width: 600px) {
             .header h1 { font-size: 2rem; }
-            .player-stats { grid-template-columns: repeat(2, 1fr); }
+            .player-stats { grid-template-columns: repeat(3, 1fr); }
             .pick-header { flex-wrap: wrap; }
         }
     </style>
@@ -224,10 +229,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">1</div>
-                <div class="team-logo">SAC</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/sac.png" alt="Sacramento Kings"></div>
                 <div class="team-info">
                     <h3>Sacramento Kings</h3>
-                    <div class="team-needs">Needs: Wing, Defense, Depth</div>
+                    <div class="team-needs">Needs: Power Forward, Defense</div>
                 </div>
             </div>
             <div class="player-info">
@@ -242,7 +247,9 @@
                     <div class="stat"><div class="stat-value">6'6"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">205</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#1</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">21.1</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">4.3</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">1.8</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Darryn Peterson is the consensus #1 prospect - a two-way guard with elite athleticism, scoring ability, and defensive instincts. He has superstar potential.<br><br>
@@ -256,10 +263,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">2</div>
-                <div class="team-logo">NOP</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/no.png" alt="New Orleans Pelicans"></div>
                 <div class="team-info">
                     <h3>New Orleans Pelicans</h3>
-                    <div class="team-needs">Needs: Frontcourt, Scoring, Health</div>
+                    <div class="team-needs">Needs: Guard, Center, Health</div>
                 </div>
             </div>
             <div class="player-info">
@@ -274,7 +281,9 @@
                     <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">18.9</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#2</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">23.5</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">9.8</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">4.1</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Cameron Boozer is a skilled power forward with excellent footwork, passing vision, and basketball IQ. Son of Carlos Boozer, he has elite pedigree.<br><br>
@@ -288,10 +297,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">3</div>
-                <div class="team-logo">IND</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/ind.png" alt="Indiana Pacers"></div>
                 <div class="team-info">
                     <h3>Indiana Pacers</h3>
-                    <div class="team-needs">Needs: Wing, Defense, Size</div>
+                    <div class="team-needs">Needs: Point Guard, Center</div>
                 </div>
             </div>
             <div class="player-info">
@@ -306,7 +315,9 @@
                     <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">210</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#3</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">23.1</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">7.0</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">4.0</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> AJ Dybantsa is a long, athletic wing with a smooth scoring game and defensive versatility. He was the top recruit in his high school class.<br><br>
@@ -320,10 +331,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">4</div>
-                <div class="team-logo">BKN</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/bkn.png" alt="Brooklyn Nets"></div>
                 <div class="team-info">
                     <h3>Brooklyn Nets</h3>
-                    <div class="team-needs">Needs: Everything, Rebuild, Star</div>
+                    <div class="team-needs">Needs: Wing, Forward, Scoring</div>
                 </div>
             </div>
             <div class="player-info">
@@ -338,7 +349,9 @@
                     <div class="stat"><div class="stat-value">6'4"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">190</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.5</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#4</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">17.5</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">3.4</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">5.4</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Kingston Flemings is a dynamic point guard with elite speed, scoring ability, and leadership. He thrives in Kelvin Sampson's demanding system.<br><br>
@@ -352,10 +365,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">5</div>
-                <div class="team-logo">WAS</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/wsh.png" alt="Washington Wizards"></div>
                 <div class="team-info">
                     <h3>Washington Wizards</h3>
-                    <div class="team-needs">Needs: Everything, Star, Defense</div>
+                    <div class="team-needs">Needs: Everything, Rebuild</div>
                 </div>
             </div>
             <div class="player-info">
@@ -370,7 +383,9 @@
                     <div class="stat"><div class="stat-value">6'10"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">215</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.9</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#5</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">20.0</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">9.8</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.8</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Caleb Wilson is a long, versatile forward with elite defensive potential and a developing offensive game. His tools are exceptional.<br><br>
@@ -384,10 +399,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">6</div>
-                <div class="team-logo">UTA</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/utah.png" alt="Utah Jazz"></div>
                 <div class="team-info">
                     <h3>Utah Jazz</h3>
-                    <div class="team-needs">Needs: Guard, Scoring, Playmaking</div>
+                    <div class="team-needs">Needs: Point Guard, Star</div>
                 </div>
             </div>
             <div class="player-info">
@@ -402,7 +417,9 @@
                     <div class="stat"><div class="stat-value">6'6"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">185</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#6</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">18.1</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">5.0</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">4.2</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Keaton Wagler is a silky smooth scorer with deep range and an advanced offensive game. He can score at all three levels.<br><br>
@@ -416,10 +433,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">7</div>
-                <div class="team-logo">DAL</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="Dallas Mavericks"></div>
                 <div class="team-info">
                     <h3>Dallas Mavericks</h3>
-                    <div class="team-needs">Needs: Defense, Wing, Depth</div>
+                    <div class="team-needs">Needs: Center, Wing Depth</div>
                 </div>
             </div>
             <div class="player-info">
@@ -434,7 +451,9 @@
                     <div class="stat"><div class="stat-value">6'5"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">190</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.2</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#7</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">16.4</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">2.9</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">5.0</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Mikel Brown Jr. is a two-way point guard with excellent size, vision, and defensive ability. He controls the game on both ends.<br><br>
@@ -448,10 +467,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">8</div>
-                <div class="team-logo">MIL</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/mil.png" alt="Milwaukee Bucks"></div>
                 <div class="team-info">
                     <h3>Milwaukee Bucks</h3>
-                    <div class="team-needs">Needs: Youth, Wing, Future</div>
+                    <div class="team-needs">Needs: Guard, Center, Youth</div>
                 </div>
             </div>
             <div class="player-info">
@@ -466,7 +485,9 @@
                     <div class="stat"><div class="stat-value">6'10"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">207</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.5</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#8</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">16.6</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">6.4</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.4</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Nate Ament is a long, skilled wing with excellent shooting and playmaking ability. His basketball IQ and feel for the game are advanced.<br><br>
@@ -480,10 +501,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">9</div>
-                <div class="team-logo">MEM</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/mem.png" alt="Memphis Grizzlies"></div>
                 <div class="team-info">
                     <h3>Memphis Grizzlies</h3>
-                    <div class="team-needs">Needs: Wing, Depth, Defense</div>
+                    <div class="team-needs">Needs: Shooting Guard, Wing</div>
                 </div>
             </div>
             <div class="player-info">
@@ -498,7 +519,9 @@
                     <div class="stat"><div class="stat-value">6'4"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">175</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.6</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#9</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">21.6</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">3.5</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">5.0</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Labaron Philon is a dynamic guard with elite speed and scoring ability. He can take over games with his burst and shotmaking.<br><br>
@@ -512,10 +535,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">10</div>
-                <div class="team-logo">CHA</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/cha.png" alt="Charlotte Hornets"></div>
                 <div class="team-info">
                     <h3>Charlotte Hornets</h3>
-                    <div class="team-needs">Needs: Everything, Star, Direction</div>
+                    <div class="team-needs">Needs: Center, Point Guard</div>
                 </div>
             </div>
             <div class="player-info">
@@ -530,7 +553,9 @@
                     <div class="stat"><div class="stat-value">6'6"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">196</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.2</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#10</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">11.7</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">3.5</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">1.3</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Braylon Mullins is a winning player with championship DNA from UConn. He does everything well - shoots, defends, competes.<br><br>
@@ -544,10 +569,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">11</div>
-                <div class="team-logo">POR</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/por.png" alt="Portland Trail Blazers"></div>
                 <div class="team-info">
                     <h3>Portland Trail Blazers</h3>
-                    <div class="team-needs">Needs: Big, Defense, Depth</div>
+                    <div class="team-needs">Needs: Frontcourt, Defense</div>
                 </div>
             </div>
             <div class="player-info">
@@ -562,7 +587,9 @@
                     <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">220</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.1</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#11</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">18.5</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">12.8</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.7</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Hannes Steinbach is a skilled stretch four from Germany with excellent shooting touch and passing ability. He's a modern big who spaces the floor.<br><br>
@@ -576,10 +603,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">12</div>
-                <div class="team-logo">LAC</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/lac.png" alt="Los Angeles Clippers"></div>
                 <div class="team-info">
                     <h3>Los Angeles Clippers</h3>
-                    <div class="team-needs">Needs: Future, Youth, Star</div>
+                    <div class="team-needs">Needs: Point Guard, Center, Youth</div>
                 </div>
             </div>
             <div class="player-info">
@@ -594,7 +621,9 @@
                     <div class="stat"><div class="stat-value">6'10"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">235</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">23.7</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#12</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">14.7</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">7.2</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">3.2</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Yaxel Lendeborg is a powerful forward with a polished offensive game and improving three-point shot. He's physically ready to contribute now.<br><br>
@@ -608,10 +637,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">13</div>
-                <div class="team-logo">CHI</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Chicago Bulls"></div>
                 <div class="team-info">
                     <h3>Chicago Bulls</h3>
-                    <div class="team-needs">Needs: Direction, Youth, Talent</div>
+                    <div class="team-needs">Needs: Everything, Rebuild</div>
                 </div>
             </div>
             <div class="player-info">
@@ -626,7 +655,9 @@
                     <div class="stat"><div class="stat-value">6'8"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">235</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#13</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">13.8</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">4.9</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.8</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Koa Peat is a powerful, athletic forward with elite physical tools and an improving skill set. His motor and intensity are relentless.<br><br>
@@ -640,10 +671,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">14</div>
-                <div class="team-logo">ATL</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/atl.png" alt="Atlanta Hawks"></div>
                 <div class="team-info">
                     <h3>Atlanta Hawks</h3>
-                    <div class="team-needs">Needs: Defense, Wing, Identity</div>
+                    <div class="team-needs">Needs: Center, Rim Protection</div>
                 </div>
             </div>
             <div class="player-info">
@@ -658,7 +689,9 @@
                     <div class="stat"><div class="stat-value">6'3"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">190</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.6</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#14</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">20.2</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">2.9</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">6.4</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Darius Acuff is a lightning-quick point guard with elite handles and playmaking ability. He breaks down defenses and creates for others.<br><br>
@@ -674,10 +707,10 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">15</div>
-                <div class="team-logo">MIA</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Miami Heat"></div>
                 <div class="team-info">
                     <h3>Miami Heat</h3>
-                    <div class="team-needs">Needs: Youth, Guard, Future</div>
+                    <div class="team-needs">Needs: Frontcourt, Youth</div>
                 </div>
             </div>
             <div class="player-info">
@@ -692,7 +725,9 @@
                     <div class="stat"><div class="stat-value">6'4"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">205</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.8</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#15</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">15.2</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">4.4</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.8</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Brayden Burries is a tough, competitive guard who defends and hits threes. He's a Heat Culture player through and through.<br><br>
@@ -706,7 +741,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">16</div>
-                <div class="team-logo">LAL</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Los Angeles Lakers"></div>
                 <div class="team-info">
                     <h3>Los Angeles Lakers</h3>
                     <div class="team-needs">Needs: Wing, Center, Depth</div>
@@ -724,7 +759,9 @@
                     <div class="stat"><div class="stat-value">6'8"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">205</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#31</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">11.7</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">7.8</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">3.4</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Amari Allen is a long, athletic wing with solid handles, floor spacing ability, and defensive instincts. He has a herky-jerky style that's hard to guard.<br><br>
@@ -738,7 +775,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">17</div>
-                <div class="team-logo">MIN</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/min.png" alt="Minnesota Timberwolves"></div>
                 <div class="team-info">
                     <h3>Minnesota Timberwolves</h3>
                     <div class="team-needs">Needs: Wing, Shooting, Depth</div>
@@ -756,7 +793,9 @@
                     <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">255</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">18.9</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#17</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">5.0</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">5.0</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">0.5</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Jayden Quaintance is an elite athlete with incredible length and defensive potential. His tools are off the charts.<br><br>
@@ -770,7 +809,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">18</div>
-                <div class="team-logo">SAS</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/sa.png" alt="San Antonio Spurs"></div>
                 <div class="team-info">
                     <h3>San Antonio Spurs</h3>
                     <div class="team-needs">Needs: Frontcourt, Wing, Shooting</div>
@@ -788,7 +827,9 @@
                     <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">215</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">22.9</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#16</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">17.6</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">6.4</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">1.9</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Thomas Haugh is a skilled stretch four with excellent shooting, basketball IQ, and the ability to play alongside a dominant big.<br><br>
@@ -802,7 +843,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">19</div>
-                <div class="team-logo">DET</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/det.png" alt="Detroit Pistons"></div>
                 <div class="team-info">
                     <h3>Detroit Pistons</h3>
                     <div class="team-needs">Needs: Big, Defense, Shooting</div>
@@ -820,7 +861,9 @@
                     <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.3</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#19</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">11.1</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">6.0</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.0</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Patrick Ngongba II is a skilled center with shot-blocking ability and improving offensive touch. He protects the rim and runs the floor.<br><br>
@@ -834,7 +877,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">20</div>
-                <div class="team-logo">TOR</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/tor.png" alt="Toronto Raptors"></div>
                 <div class="team-info">
                     <h3>Toronto Raptors</h3>
                     <div class="team-needs">Needs: Wing, Scoring, Star</div>
@@ -852,7 +895,9 @@
                     <div class="stat"><div class="stat-value">6'5"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">215</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.1</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#20</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">17.5</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">5.8</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">1.8</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Tounde Yessoufou is an athletic wing with defensive versatility and improving shooting. His motor and energy are contagious.<br><br>
@@ -866,7 +911,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">21</div>
-                <div class="team-logo">PHX</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Phoenix Suns"></div>
                 <div class="team-info">
                     <h3>Phoenix Suns</h3>
                     <div class="team-needs">Needs: Big, Depth, Defense</div>
@@ -884,7 +929,9 @@
                     <div class="stat"><div class="stat-value">6'5"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">175</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">21.6</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#21</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">5.7</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.6</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Cameron Carr is a knockdown shooter with range and quick release. He can score in bunches when hot.<br><br>
@@ -898,7 +945,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">22</div>
-                <div class="team-logo">NYK</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" alt="New York Knicks"></div>
                 <div class="team-info">
                     <h3>New York Knicks</h3>
                     <div class="team-needs">Needs: Depth, Guard, Shooting</div>
@@ -916,7 +963,9 @@
                     <div class="stat"><div class="stat-value">6'8"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">220</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.2</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#22</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">11.0</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">6.0</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">1.9</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Karim Lopez is an intriguing international wing with size, skill, and defensive potential. He's been developing professionally overseas.<br><br>
@@ -932,7 +981,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">23</div>
-                <div class="team-logo">HOU</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/hou.png" alt="Houston Rockets"></div>
                 <div class="team-info">
                     <h3>Houston Rockets</h3>
                     <div class="team-needs">Needs: Wing, Shooting, Depth</div>
@@ -950,7 +999,9 @@
                     <div class="stat"><div class="stat-value">6'11"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">240</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#23</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">9.3</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">7.7</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">0.8</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Chris Cenac Jr. is an elite defender with shot-blocking ability and growing offensive skills. He's a product of Kelvin Sampson's system.<br><br>
@@ -964,7 +1015,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">24</div>
-                <div class="team-logo">DEN</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/den.png" alt="Denver Nuggets"></div>
                 <div class="team-info">
                     <h3>Denver Nuggets</h3>
                     <div class="team-needs">Needs: Wing, Defense, Youth</div>
@@ -982,7 +1033,9 @@
                     <div class="stat"><div class="stat-value">6'3"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">178</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.2</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#24</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">19.6</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">3.2</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">7.5</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Christian Anderson is a quick, scrappy point guard who defends and competes. He's a pest on the ball defensively.<br><br>
@@ -996,7 +1049,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">25</div>
-                <div class="team-logo">OKC</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/okc.png" alt="Oklahoma City Thunder"></div>
                 <div class="team-info">
                     <h3>Oklahoma City Thunder</h3>
                     <div class="team-needs">Needs: Big, Experience, Depth</div>
@@ -1014,7 +1067,9 @@
                     <div class="stat"><div class="stat-value">7'0"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">19.7</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#25</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">8.6</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">6.5</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">1.8</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Malachi Moreno is a massive center with rim protection and developing offensive skills. His size and length are elite.<br><br>
@@ -1028,7 +1083,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">26</div>
-                <div class="team-logo">CLE</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/cle.png" alt="Cleveland Cavaliers"></div>
                 <div class="team-info">
                     <h3>Cleveland Cavaliers</h3>
                     <div class="team-needs">Needs: Wing, Depth, Shooting</div>
@@ -1046,7 +1101,9 @@
                     <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">240</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">22.6</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#26</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">17.6</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">7.9</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">5.6</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Joshua Jefferson is a winning player who does the dirty work - rebounding, defending, and making hustle plays. He's a glue guy.<br><br>
@@ -1060,7 +1117,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">27</div>
-                <div class="team-logo">GSW</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/gs.png" alt="Golden State Warriors"></div>
                 <div class="team-info">
                     <h3>Golden State Warriors</h3>
                     <div class="team-needs">Needs: Youth, Guard, Future</div>
@@ -1078,7 +1135,9 @@
                     <div class="stat"><div class="stat-value">6'0"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">175</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#27</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">17.5</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">3.6</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">5.2</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Tyler Tanner is a floor general with elite court vision and passing ability. He makes others better and controls tempo.<br><br>
@@ -1092,7 +1151,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">28</div>
-                <div class="team-logo">BOS</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Boston Celtics"></div>
                 <div class="team-info">
                     <h3>Boston Celtics</h3>
                     <div class="team-needs">Needs: Big, Depth, Value</div>
@@ -1110,7 +1169,9 @@
                     <div class="stat"><div class="stat-value">6'9"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">250</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.4</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#28</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">13.8</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">7.0</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">1.3</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Morez Johnson Jr. is a physical, powerful forward who rebounds and finishes around the rim. He plays hard every possession.<br><br>
@@ -1124,7 +1185,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">29</div>
-                <div class="team-logo">ORL</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/orl.png" alt="Orlando Magic"></div>
                 <div class="team-info">
                     <h3>Orlando Magic</h3>
                     <div class="team-needs">Needs: Guard, Shooting, Playmaking</div>
@@ -1142,7 +1203,9 @@
                     <div class="stat"><div class="stat-value">7'3"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">255</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">21.2</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#29</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">10.9</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">8.5</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.5</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Aday Mara is a massive center from Spain with soft touch and improving mobility. His size creates problems for opposing teams.<br><br>
@@ -1156,7 +1219,7 @@
         <div class="pick-card">
             <div class="pick-header">
                 <div class="pick-number">30</div>
-                <div class="team-logo">PHI</div>
+                <div class="team-logo"><img src="https://a.espncdn.com/i/teamlogos/nba/500/phi.png" alt="Philadelphia 76ers"></div>
                 <div class="team-info">
                     <h3>Philadelphia 76ers</h3>
                     <div class="team-needs">Needs: Depth, Wing, Value</div>
@@ -1174,7 +1237,9 @@
                     <div class="stat"><div class="stat-value">6'8"</div><div class="stat-label">Height</div></div>
                     <div class="stat"><div class="stat-value">225</div><div class="stat-label">Weight</div></div>
                     <div class="stat"><div class="stat-value">20.9</div><div class="stat-label">Age</div></div>
-                    <div class="stat"><div class="stat-value">#30</div><div class="stat-label">Rank</div></div>
+                    <div class="stat"><div class="stat-value">10.5</div><div class="stat-label">PPG</div></div>
+                    <div class="stat"><div class="stat-value">5.4</div><div class="stat-label">RPG</div></div>
+                    <div class="stat"><div class="stat-value">2.6</div><div class="stat-label">APG</div></div>
                 </div>
                 <div class="player-analysis">
                     <strong>The Pick:</strong> Dailyn Swain is a versatile wing with size, shooting, and defensive ability. He can guard multiple positions and hit open threes.<br><br>
