@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 NBA Mock Draft - First Round</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --nba-blue: #17408B;
+            --nba-red: #C9082A;
+            --basketball-orange: #E85D04;
+            --court-tan: #C9A66B;
+            --court-brown: #8B5A2B;
+            --hardwood: #DEB887;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,37 +23,73 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                linear-gradient(rgba(23, 64, 139, 0.95), rgba(23, 64, 139, 0.9)),
+                repeating-linear-gradient(
+                    90deg,
+                    #C9A66B 0px,
+                    #C9A66B 80px,
+                    #B8956B 80px,
+                    #B8956B 160px
+                );
+            background-attachment: fixed;
             min-height: 100vh;
             color: #fff;
             padding: 20px;
+        }
+
+        /* Court lines overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 600px 300px at 50% 50%, transparent 99%, rgba(255,255,255,0.1) 100%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .header {
             text-align: center;
             padding: 40px 20px;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, #1abc9c, #2ecc71, #1abc9c);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 3s linear infinite;
-            margin-bottom: 10px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 0 var(--basketball-orange), 6px 6px 0 rgba(0,0,0,0.3);
+            margin-bottom: 15px;
         }
 
-        @keyframes shine {
-            to { background-position: 200% center; }
+        .header h1 span {
+            color: var(--basketball-orange);
         }
 
         .header p {
-            color: #8892b0;
-            font-size: 1.2rem;
+            font-family: 'Oswald', sans-serif;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Basketball icon */
+        .header::before {
+            content: '🏀';
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
         }
 
         .page-layout {
@@ -63,9 +110,9 @@
         }
 
         .rumor-tracker {
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.9), rgba(15, 45, 100, 0.95));
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.15);
             position: sticky;
             top: 20px;
             max-height: calc(100vh - 40px);
@@ -73,17 +120,19 @@
         }
 
         .rumor-header {
-            background: linear-gradient(90deg, #1abc9c, #2ecc71);
+            background: linear-gradient(135deg, var(--nba-red), #a00620);
             padding: 20px;
             border-radius: 15px 15px 0 0;
             text-align: center;
+            border-bottom: 3px solid var(--basketball-orange);
         }
 
         .rumor-header h2 {
-            font-size: 1.3rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 5px;
         }
 
@@ -97,11 +146,11 @@
         }
 
         .rumor-item {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 12px;
-            border-left: 3px solid #1abc9c;
+            border-left: 4px solid var(--basketball-orange);
             transition: transform 0.2s, background 0.2s;
         }
 
@@ -158,7 +207,7 @@
 
         .rumor-source {
             font-size: 0.75rem;
-            color: #2ecc71;
+            color: var(--basketball-orange);
             font-weight: 600;
         }
 
@@ -168,13 +217,11 @@
         }
 
         .rumor-hot {
-            border-left-color: #2ecc71;
+            border-left-color: var(--nba-red);
         }
 
         .rumor-hot .rumor-headline::before {
-            content: "HOT ";
-            color: #2ecc71;
-            font-weight: 700;
+            content: "🔥 ";
         }
 
         .rumor-new {
@@ -182,9 +229,7 @@
         }
 
         .rumor-new .rumor-headline::before {
-            content: "NEW ";
-            color: #27ae60;
-            font-weight: 700;
+            content: "🆕 ";
         }
 
         .rumor-done {
@@ -204,16 +249,17 @@
         }
 
         .pick-card-compact {
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.85), rgba(15, 45, 100, 0.9));
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .pick-card-compact:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(26, 188, 156, 0.15);
+            box-shadow: 0 5px 20px rgba(232, 93, 4, 0.25);
+            border-color: var(--basketball-orange);
         }
 
         .pick-header-compact {
@@ -227,14 +273,16 @@
         .pick-number-compact {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, #8892b0, #5a6380);
+            background: linear-gradient(135deg, var(--basketball-orange), #c44e03);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
             flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
         .team-logo-compact {
@@ -250,11 +298,15 @@
         }
 
         .team-info-compact h4 {
-            font-size: 0.85rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
             margin-bottom: 2px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .team-needs-compact {
@@ -274,9 +326,12 @@
         }
 
         .player-name-compact {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1abc9c;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .player-school-compact {
@@ -286,11 +341,13 @@
         }
 
         .player-position-compact {
-            background: linear-gradient(135deg, #8892b0, #5a6380);
+            background: var(--basketball-orange);
             padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.75rem;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
 
         .player-stats-compact {
@@ -307,9 +364,10 @@
         }
 
         .stat-value-compact {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #2ecc71;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--basketball-orange);
         }
 
         .stat-label-compact {
@@ -347,29 +405,37 @@
         }
 
         .lottery-banner {
-            background: linear-gradient(90deg, #1abc9c, #2ecc71);
-            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--nba-red), #a00620);
+            padding: 18px 30px;
             border-radius: 10px;
             text-align: center;
             margin-bottom: 30px;
+            font-family: 'Oswald', sans-serif;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            border: 3px solid var(--basketball-orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .pick-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.9), rgba(15, 45, 100, 0.95));
             border-radius: 15px;
             margin-bottom: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.15);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
         }
 
         .pick-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(26, 188, 156, 0.2);
+            box-shadow: 0 10px 40px rgba(232, 93, 4, 0.3);
+            border-color: var(--basketball-orange);
         }
 
         .pick-header {
@@ -383,14 +449,17 @@
         .pick-number {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #1abc9c, #2ecc71);
+            background: linear-gradient(135deg, var(--basketball-orange), #c44e03);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
             flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
         }
 
         .team-logo {
@@ -412,8 +481,12 @@
         }
 
         .team-info h3 {
-            font-size: 1.3rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
             margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .team-needs {
@@ -433,9 +506,12 @@
         }
 
         .player-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1abc9c;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .player-school {
@@ -444,11 +520,15 @@
         }
 
         .player-position {
-            background: linear-gradient(135deg, #1abc9c, #2ecc71);
+            background: var(--basketball-orange);
             padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 1rem;
+            border-radius: 5px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .player-stats {
@@ -466,9 +546,10 @@
         }
 
         .stat-value {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2ecc71;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--basketball-orange);
         }
 
         .stat-label {
@@ -486,23 +567,43 @@
         }
 
         .mid-round-banner {
-            background: linear-gradient(90deg, #0f3460, #16213e);
-            border: 2px solid #1abc9c;
-            padding: 15px 30px;
+            background: linear-gradient(135deg, rgba(23, 64, 139, 0.95), rgba(15, 45, 100, 0.95));
+            border: 3px solid var(--basketball-orange);
+            padding: 18px 30px;
             border-radius: 10px;
             text-align: center;
             margin: 40px 0;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #1abc9c;
+            letter-spacing: 3px;
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .footer {
             text-align: center;
             padding: 40px 20px;
-            color: #8892b0;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer::before {
+            content: '🏀';
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 15px;
         }
 
         @media (max-width: 600px) {
